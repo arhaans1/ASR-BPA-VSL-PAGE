@@ -122,19 +122,152 @@ a:hover ~ #cursor, button:hover ~ #cursor, .cta-btn:hover ~ #cursor{width:18px;h
 /* Scene 6 specifics */
 .scene6-content{display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;max-width:720px;padding:80px 24px 40px;}
 .eyebrow{font-family:'Bebas Neue',sans-serif;font-size:clamp(12px,1.2vw,15px);letter-spacing:6px;color:var(--gold);}
-/* Mobile */
+/* Hero Section */
+#hero{width:100vw;height:100vh;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--ink);overflow:hidden;text-align:center;padding:24px;}
+#hero .noise-overlay{position:absolute;inset:0;opacity:.035;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:128px;}
+.hero-eyebrow{font-family:'Bebas Neue',sans-serif;font-size:clamp(11px,1.2vw,15px);letter-spacing:6px;color:var(--accent);margin-bottom:24px;z-index:2;}
+.hero-headline{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(26px,5vw,64px);color:var(--paper);line-height:1.15;max-width:900px;z-index:2;margin-bottom:20px;}
+.hero-headline .highlight{color:var(--accent);}
+.hero-headline .gold{color:var(--gold);}
+.hero-sub{font-family:'DM Mono',monospace;font-size:clamp(12px,1.2vw,16px);color:var(--muted);max-width:600px;line-height:1.7;z-index:2;margin-bottom:40px;}
+.scroll-indicator{z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;animation:scrollBounce 2s ease infinite;}
+.scroll-indicator span{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:2px;}
+.scroll-indicator svg{opacity:.5;}
+@keyframes scrollBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
+/* Accent line decorations on hero */
+.hero-line{width:60px;height:2px;background:var(--accent);margin:0 auto 24px;z-index:2;}
+/* ═══ MOBILE RESPONSIVE ═══ */
+/* Disable custom cursor on touch devices */
+@media(pointer:coarse){
+html,body,a,.cta-btn,.play-btn,.nav-cta{cursor:auto !important;}
+#cursor,#cursor-ring{display:none !important;}
+}
+/* Tablets and below */
+@media(max-width:1024px){
+.scene-character svg{max-width:200px;height:auto;}
+.caption-box{max-width:260px;font-size:12px;}
+.dashboard-card{max-width:280px;font-size:11px;padding:14px 16px;}
+.blueprint-box{font-size:10px;padding:10px 14px;}
+}
+/* Mobile phones */
 @media(max-width:768px){
-.scene-character svg{transform:scale(.6);transform-origin:center center;}
-.caption-box{max-width:85vw;font-size:12px;padding:10px 14px;}
-.dashboard-card{max-width:85vw;}
-.two-columns{flex-direction:column;gap:20px;max-width:90vw;}
-.result-card{max-width:85vw;}
-.testimonial{max-width:90vw;}
-#top-nav{padding:12px 16px;}
+/* Nav */
+#top-nav{padding:10px 14px;gap:8px;}
+.nav-logo{font-size:14px;letter-spacing:2px;}
 .nav-chapter{display:none;}
-.blueprint-box{max-width:80vw;}
-.whatsapp-card{max-width:80vw;}
-.scene6-content{padding:70px 16px 30px;}
+.nav-cta{font-size:10px;padding:5px 10px;}
+/* Hero */
+#hero{padding:20px 16px;}
+.hero-headline{font-size:clamp(22px,6vw,36px);max-width:100%;}
+.hero-sub{font-size:clamp(11px,3vw,14px);max-width:100%;}
+.hero-eyebrow{font-size:clamp(9px,2.5vw,12px);letter-spacing:3px;margin-bottom:16px;}
+.hero-line{width:40px;}
+/* Scenes */
+.scene{min-height:100vh;min-height:100dvh;}
+/* Characters scale down on mobile */
+.scene-character{transform:scale(.5) !important;transform-origin:bottom left !important;}
+.scene-character svg{max-width:180px;height:auto;}
+/* Scene 0 specific */
+#s00-rajan{left:5% !important;bottom:12% !important;}
+#s00-headline{right:5% !important;top:20% !important;max-width:70% !important;font-size:clamp(32px,9vw,60px) !important;}
+#s00-sub1,#s00-sub2,#s00-sub3{right:5% !important;max-width:65% !important;font-size:clamp(11px,3vw,14px) !important;}
+#s00-sub1{top:48% !important;}
+#s00-sub2{top:54% !important;}
+#s00-sub3{top:60% !important;}
+#s00-chapter{bottom:5% !important;left:3% !important;font-size:11px !important;}
+.frame-border{inset:16px !important;width:calc(100% - 32px) !important;height:calc(100% - 32px) !important;}
+/* Caption boxes — stack properly on mobile */
+.caption-box{max-width:75vw !important;font-size:clamp(10px,2.8vw,12px) !important;padding:10px 12px !important;position:absolute !important;}
+/* Scene 1 mobile */
+#s01-rajan{left:2% !important;bottom:8% !important;}
+#s01-dashboard{top:auto !important;bottom:40% !important;right:3% !important;left:3% !important;max-width:94vw !important;}
+#s01-crack{top:auto !important;bottom:40% !important;right:3% !important;width:94vw !important;}
+#s01-caption1{top:8% !important;left:3% !important;max-width:55vw !important;}
+#s01-narrative{right:3% !important;bottom:25% !important;max-width:50vw !important;}
+#s01-narrative .headline-syne{font-size:clamp(16px,4vw,22px) !important;}
+#s01-caption2{bottom:6% !important;left:3% !important;max-width:55vw !important;}
+/* Scene 2 mobile */
+#s02-rajan{left:2% !important;bottom:8% !important;}
+#s02-dashboard{top:6% !important;right:2% !important;left:2% !important;max-width:96vw !important;}
+#s02-caption1{top:32% !important;left:3% !important;max-width:60vw !important;}
+#s02-caption2{top:48% !important;right:3% !important;left:auto !important;max-width:55vw !important;}
+#s02-caption3{bottom:28% !important;left:3% !important;right:auto !important;transform:none !important;max-width:65vw !important;}
+#s02-whatsapp{bottom:10% !important;right:3% !important;max-width:70vw !important;}
+.impact-text{font-size:clamp(24px,7vw,48px) !important;width:90vw !important;left:5vw !important;transform:none !important;}
+#s02-impact1{top:36% !important;}
+#s02-impact2{top:46% !important;}
+#s02-ekg{bottom:4% !important;left:5% !important;width:90% !important;}
+#s02-chapter{bottom:2% !important;font-size:10px !important;}
+/* Scene 3 mobile */
+#s03-rajan{left:2% !important;top:auto !important;bottom:5% !important;transform:scale(.4) !important;transform-origin:bottom left !important;}
+#s03-pyramid{position:absolute !important;right:2% !important;left:2% !important;top:8% !important;transform:none !important;width:auto !important;}
+#s03-pyramid svg{width:100%;max-width:96vw;height:auto;}
+#s03-caption1,#s03-caption2,#s03-caption3,#s03-caption4,#s03-caption5,#s03-caption6{position:absolute !important;left:3% !important;max-width:55vw !important;}
+#s03-caption1{top:5% !important;}
+#s03-caption2{top:16% !important;}
+#s03-caption3{top:27% !important;}
+#s03-caption4{top:38% !important;}
+#s03-caption5{top:49% !important;}
+#s03-caption6{top:60% !important;}
+#s03-panel-label{bottom:24% !important;font-size:clamp(16px,5vw,28px) !important;width:90vw !important;left:5vw !important;transform:none !important;}
+#s03-columns{bottom:4% !important;left:3% !important;right:3% !important;transform:none !important;flex-direction:column !important;gap:12px !important;max-width:94vw !important;}
+#s03-chapter{bottom:1% !important;font-size:10px !important;}
+/* Scene 4 mobile — blueprint as vertical stack */
+#s04-rajan{left:2% !important;top:auto !important;bottom:3% !important;transform:scale(.35) translateY(0) !important;transform-origin:bottom left !important;}
+#s04-title{top:2% !important;font-size:clamp(10px,3vw,14px) !important;left:3% !important;right:3% !important;transform:none !important;text-align:center;}
+#s04-blueprint{position:absolute !important;left:3% !important;right:3% !important;top:7% !important;width:94% !important;transform:none !important;}
+.blueprint-box{position:relative !important;margin-bottom:8px !important;max-width:100% !important;padding:10px 12px !important;font-size:clamp(9px,2.5vw,11px) !important;}
+.blueprint-box .layer-num{font-size:clamp(11px,3vw,14px) !important;}
+.blueprint-box .layer-name{font-size:clamp(10px,2.8vw,13px) !important;}
+/* Hide captions on mobile for scene 4, content is in blueprint boxes */
+#s04-cap1,#s04-cap2,#s04-cap3,#s04-cap4,#s04-cap5{max-width:42vw !important;right:1% !important;font-size:10px !important;padding:8px 10px !important;}
+#s04-cap1{top:8% !important;}
+#s04-cap2{top:24% !important;}
+#s04-cap3{top:42% !important;}
+#s04-cap4{top:58% !important;}
+#s04-cap5{bottom:5% !important;top:auto !important;}
+#s04-chapter{bottom:1% !important;font-size:10px !important;}
+/* Scene 5 mobile — cards stack vertically */
+#s05-rajan{left:1% !important;bottom:3% !important;transform:scale(.35) !important;transform-origin:bottom left !important;}
+.result-card{position:relative !important;max-width:90vw !important;margin:8px auto !important;padding:20px !important;}
+.result-number{font-size:clamp(40px,10vw,60px) !important;}
+.result-text{font-size:clamp(10px,2.8vw,12px) !important;}
+#s05-card1,#s05-card2,#s05-card3{top:auto !important;left:auto !important;right:auto !important;transform:none !important;}
+.testimonial{position:relative !important;max-width:90vw !important;margin:16px auto 0 !important;transform:none !important;left:auto !important;bottom:auto !important;}
+.testimonial-quote{font-size:clamp(14px,4vw,20px) !important;}
+.quote-mark{font-size:clamp(60px,15vw,100px) !important;top:-30px !important;left:-10px !important;}
+/* Scene 5 needs flow layout on mobile */
+#scene-05 .scene-content{flex-direction:column !important;padding:60px 12px 20px !important;overflow-y:auto !important;}
+/* Scene 6 mobile */
+.scene6-content{padding:60px 16px 24px !important;gap:14px !important;max-width:100% !important;}
+.eyebrow{font-size:clamp(10px,2.5vw,13px) !important;letter-spacing:3px !important;}
+.headline-syne{font-size:clamp(22px,6vw,36px) !important;}
+.video-placeholder{max-width:100% !important;}
+.play-btn{width:50px !important;height:50px !important;}
+.cta-btn{padding:14px 24px !important;font-size:clamp(13px,3.5vw,16px) !important;width:100% !important;text-align:center;}
+.trust-row{gap:12px !important;}
+.trust-item{font-size:10px !important;}
+.sub-line{font-size:clamp(11px,3vw,13px) !important;}
+/* Dashboard specific */
+.dashboard-card{max-width:92vw !important;font-size:clamp(10px,2.5vw,12px) !important;padding:12px 14px !important;}
+.dashboard-header{font-size:clamp(11px,3vw,13px) !important;}
+.metric-row{gap:4px !important;font-size:clamp(9px,2.3vw,11px) !important;}
+/* WhatsApp card */
+.whatsapp-card{max-width:75vw !important;font-size:11px !important;}
+/* Two columns */
+.two-columns{flex-direction:column !important;gap:12px !important;max-width:92vw !important;}
+.two-columns .col-header{font-size:clamp(10px,2.8vw,13px) !important;}
+.two-columns .col-row{font-size:clamp(10px,2.5vw,12px) !important;}
+/* Chapter overlay */
+#chapter-overlay .ch-num{font-size:clamp(28px,8vw,50px) !important;}
+#chapter-overlay .ch-title{font-size:clamp(10px,3vw,14px) !important;}
+}
+/* Very small phones */
+@media(max-width:380px){
+.hero-headline{font-size:clamp(20px,5.5vw,28px);}
+#s00-headline{font-size:clamp(28px,8vw,44px) !important;}
+.impact-text{font-size:clamp(20px,6vw,36px) !important;}
+.caption-box{font-size:10px !important;padding:8px 10px !important;}
 }
 </style>
 </head>
@@ -157,6 +290,28 @@ a:hover ~ #cursor, button:hover ~ #cursor, .cta-btn:hover ~ #cursor{width:18px;h
 </div>
 
 <!-- ══════════════════════════════════════════════ -->
+<!-- HERO — VISIBLE ON LOAD -->
+<!-- ══════════════════════════════════════════════ -->
+<div id="hero">
+<div class="noise-overlay"></div>
+<div class="hero-line"></div>
+<div class="hero-eyebrow">ASR MEDIA PRO — BULLETPROOF ADS SYSTEM</div>
+<h1 class="hero-headline">
+Learn Why Your <span class="highlight">Meta Ads Fail.</span><br>
+And How We Fix It Permanently by Giving You<br>
+<span class="gold">3x More Buyer-Qualified Leads</span><br>
+at <span class="highlight">40% Lesser Costs.</span>
+</h1>
+<div class="hero-sub">
+The story below will show you exactly what's breaking your funnel — and the 4-layer system that fixes it.
+</div>
+<div class="scroll-indicator">
+<span>SCROLL TO BEGIN</span>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 4v16m0 0l-6-6m6 6l6-6" stroke="var(--paper)" stroke-width="1.5" stroke-linecap="round"/></svg>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
 <!-- SCENE 0 — THE COVER -->
 <!-- ══════════════════════════════════════════════ -->
 <div id="scene-00" class="scene" style="background:var(--ink);">
@@ -169,52 +324,108 @@ a:hover ~ #cursor, button:hover ~ #cursor, .cta-btn:hover ~ #cursor{width:18px;h
 <line id="s00-center-line" x1="0" y1="50%" x2="100%" y2="50%" stroke="var(--accent)" stroke-width="2" stroke-dasharray="2000" stroke-dashoffset="2000"/>
 </svg>
 
-<!-- Rajan STATE 1 — Stressed (sitting at desk) -->
+<!-- Rajan STATE 1 — Stressed (sitting at desk) — 3D enhanced -->
 <div class="scene-character" id="s00-rajan" style="position:absolute;left:12%;bottom:15%;opacity:0;">
 <svg id="rajan-stressed" width="280" height="320" viewBox="0 0 280 320" xmlns="http://www.w3.org/2000/svg">
-<!-- Desk -->
-<rect id="rajan-desk" x="40" y="230" width="220" height="12" rx="2" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
-<rect x="60" y="242" width="16" height="60" rx="2" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
-<rect x="220" y="242" width="16" height="60" rx="2" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
-<!-- Laptop / Screen -->
-<rect id="rajan-screen" x="100" y="170" width="100" height="60" rx="3" fill="#111122" stroke="#1a1a2e" stroke-width="2"/>
-<rect id="rajan-screen-glow" x="105" y="175" width="90" height="50" rx="2" fill="#1e3a5f" opacity=".7"/>
-<!-- Screen glow effect -->
-<ellipse id="rajan-glow-aura" cx="150" cy="160" rx="80" ry="60" fill="url(#screenGlow)" opacity=".4"/>
 <defs>
-<radialGradient id="screenGlow" cx="50%" cy="50%">
-<stop offset="0%" stop-color="#1e3a5f" stop-opacity=".5"/>
-<stop offset="100%" stop-color="transparent" stop-opacity="0"/>
-</radialGradient>
+<!-- 3D skin gradient -->
+<linearGradient id="skinGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#deb587"/><stop offset="50%" stop-color="#d4a574"/><stop offset="100%" stop-color="#b8885a"/></linearGradient>
+<!-- Shirt/torso gradient for depth -->
+<linearGradient id="shirtGrad0" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4d4570"/><stop offset="100%" stop-color="#2d2540"/></linearGradient>
+<!-- Hair highlight -->
+<linearGradient id="hairGrad0" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a2a40"/><stop offset="100%" stop-color="#0e0e1e"/></linearGradient>
+<!-- Screen glow -->
+<radialGradient id="screenGlow" cx="50%" cy="50%"><stop offset="0%" stop-color="#1e3a5f" stop-opacity=".5"/><stop offset="100%" stop-color="transparent" stop-opacity="0"/></radialGradient>
+<!-- Drop shadow filter -->
+<filter id="shadow0" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#000" flood-opacity=".35"/></filter>
+<!-- Desk wood gradient -->
+<linearGradient id="deskGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#35354e"/><stop offset="50%" stop-color="#2a2a3e"/><stop offset="100%" stop-color="#222236"/></linearGradient>
 </defs>
-<!-- Chair back -->
-<rect x="110" y="245" width="80" height="40" rx="4" fill="#222238" stroke="#1a1a2e" stroke-width="2"/>
-<!-- Torso (hunched) -->
-<path id="rajan-torso" d="M120,225 Q125,190 140,175 Q155,165 170,175 Q180,190 175,225 Z" fill="#3d3558" stroke="#1a1a2e" stroke-width="2.5"/>
-<!-- Left arm (elbow on desk, hand holding head) -->
-<path id="rajan-arm-left" d="M120,210 Q105,220 100,228 Q95,225 100,210 Q110,190 125,170" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
-<ellipse cx="125" cy="168" rx="8" ry="6" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
+<!-- Desk with wood grain feel -->
+<rect id="rajan-desk" x="40" y="230" width="220" height="14" rx="2" fill="url(#deskGrad)" stroke="#1a1a2e" stroke-width="2"/>
+<rect x="55" y="244" width="18" height="58" rx="3" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
+<rect x="222" y="244" width="18" height="58" rx="3" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
+<!-- Desk surface reflection -->
+<rect x="42" y="231" width="216" height="4" rx="1" fill="rgba(255,255,255,.04)"/>
+<!-- Laptop / Screen -->
+<rect id="rajan-screen" x="98" y="168" width="104" height="62" rx="4" fill="#0a0a18" stroke="#1a1a2e" stroke-width="2"/>
+<rect id="rajan-screen-glow" x="103" y="173" width="94" height="52" rx="3" fill="#1e3a5f" opacity=".7"/>
+<!-- Screen content lines -->
+<line x1="112" y1="185" x2="165" y2="185" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+<line x1="112" y1="192" x2="180" y2="192" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+<line x1="112" y1="199" x2="155" y2="199" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+<!-- Screen glow aura -->
+<ellipse id="rajan-glow-aura" cx="150" cy="160" rx="85" ry="65" fill="url(#screenGlow)" opacity=".45"/>
+<!-- Keyboard on desk -->
+<rect x="115" y="232" width="68" height="6" rx="2" fill="#1a1a2e" opacity=".6"/>
+<!-- Chair back with depth -->
+<path d="M108,248 Q110,240 150,238 Q190,240 192,248 L192,282 Q190,286 150,288 Q110,286 108,282 Z" fill="#222238" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M112,250 Q115,244 150,242 Q185,244 188,250 L188,256 Q185,252 150,250 Q115,252 112,256 Z" fill="rgba(255,255,255,.04)"/>
+<!-- Torso (hunched) with 3D gradient -->
+<path id="rajan-torso" d="M118,228 Q122,192 138,176 Q150,166 162,176 Q178,192 175,228 Z" fill="url(#shirtGrad0)" stroke="#1a1a2e" stroke-width="2.5" filter="url(#shadow0)"/>
+<!-- Shirt collar -->
+<path d="M135,172 Q140,168 148,172 Q150,176 148,178 Q140,174 135,178 Z" fill="#555078" stroke="#1a1a2e" stroke-width="1"/>
+<path d="M148,172 Q156,168 162,172 Q162,178 158,178 Q156,174 148,178 Z" fill="#555078" stroke="#1a1a2e" stroke-width="1"/>
+<!-- Left arm (elbow on desk, hand holding head) with 3D shading -->
+<path id="rajan-arm-left" d="M118,212 Q103,222 98,230" fill="none" stroke="#1a1a2e" stroke-width="4" stroke-linecap="round"/>
+<path d="M118,212 Q103,222 98,230" fill="none" stroke="#3d3558" stroke-width="3" stroke-linecap="round"/>
+<!-- Forearm going up to head -->
+<path d="M98,230 Q95,220 100,208 Q108,190 124,170" fill="none" stroke="#1a1a2e" stroke-width="4" stroke-linecap="round"/>
+<path d="M98,230 Q95,220 100,208 Q108,190 124,170" fill="none" stroke="url(#skinGrad)" stroke-width="2.5" stroke-linecap="round"/>
+<!-- Hand holding head with fingers -->
+<ellipse cx="124" cy="168" rx="9" ry="7" fill="url(#skinGrad)" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M118,164 Q120,158 124,156" fill="none" stroke="url(#skinGrad)" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M122,162 Q125,157 128,156" fill="none" stroke="url(#skinGrad)" stroke-width="2" stroke-linecap="round"/>
+<path d="M127,164 Q130,160 132,159" fill="none" stroke="url(#skinGrad)" stroke-width="2" stroke-linecap="round"/>
 <!-- Right arm (on desk) -->
-<path id="rajan-arm-right" d="M175,210 Q190,220 200,228" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
-<ellipse cx="202" cy="226" rx="7" ry="5" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
-<!-- Neck -->
-<rect x="140" y="145" width="16" height="18" rx="4" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
-<!-- Head -->
-<ellipse id="rajan-head" cx="148" cy="128" rx="30" ry="34" fill="#d4a574" stroke="#1a1a2e" stroke-width="2.5"/>
-<!-- Hair -->
-<path id="rajan-hair" d="M118,118 Q120,90 148,85 Q176,90 178,118 Q175,105 148,100 Q121,105 118,118Z" fill="#1a1a2e"/>
-<!-- Left eye -->
-<ellipse id="rajan-eye-left" cx="137" cy="125" rx="4" ry="3" fill="#1a1a2e"/>
+<path id="rajan-arm-right" d="M175,212 Q190,222 202,230" fill="none" stroke="#1a1a2e" stroke-width="4" stroke-linecap="round"/>
+<path d="M175,212 Q190,222 202,230" fill="none" stroke="#3d3558" stroke-width="3" stroke-linecap="round"/>
+<ellipse cx="204" cy="228" rx="8" ry="6" fill="url(#skinGrad)" stroke="#1a1a2e" stroke-width="2"/>
+<!-- Fingers on desk -->
+<path d="M198,225 Q196,222 194,224" fill="none" stroke="#b8885a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M204,224 Q204,220 202,222" fill="none" stroke="#b8885a" stroke-width="1.5" stroke-linecap="round"/>
+<!-- Neck with shading -->
+<path d="M138,168 Q140,152 148,148 Q156,152 158,168" fill="url(#skinGrad)" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M142,165 Q148,160 154,165" fill="none" stroke="rgba(0,0,0,.12)" stroke-width="1"/>
+<!-- Head with 3D gradient -->
+<ellipse id="rajan-head" cx="148" cy="130" rx="32" ry="36" fill="url(#skinGrad)" stroke="#1a1a2e" stroke-width="2.5" filter="url(#shadow0)"/>
+<!-- Ear -->
+<ellipse cx="178" cy="132" rx="5" ry="8" fill="url(#skinGrad)" stroke="#1a1a2e" stroke-width="1.5"/>
+<ellipse cx="179" cy="132" rx="2.5" ry="4" fill="#c49060" opacity=".5"/>
+<!-- Jawline definition -->
+<path d="M122,145 Q135,158 148,160 Q161,158 174,145" fill="none" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+<!-- Hair with gradient and highlights -->
+<path id="rajan-hair" d="M116,120 Q118,88 148,82 Q178,88 180,120 Q177,104 148,98 Q119,104 116,120Z" fill="url(#hairGrad0)" stroke="#1a1a2e" stroke-width="1.5"/>
+<path d="M125,95 Q140,90 155,92" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="2" stroke-linecap="round"/>
+<!-- Nose -->
+<path d="M148,128 Q146,134 143,138 Q147,140 151,138 Q149,134 148,128" fill="none" stroke="#b8885a" stroke-width="1.5" stroke-linecap="round" opacity=".7"/>
+<!-- Left eye with iris, white, highlight -->
+<ellipse cx="137" cy="127" rx="6" ry="4.5" fill="#f5f0ea" stroke="#1a1a2e" stroke-width="1.5"/>
+<ellipse id="rajan-eye-left" cx="137" cy="127" rx="3" ry="3" fill="#2a1a0e"/>
+<ellipse cx="136" cy="126" rx="1" ry="1" fill="#fff" opacity=".7"/>
 <!-- Right eye -->
-<ellipse id="rajan-eye-right" cx="159" cy="125" rx="4" ry="3" fill="#1a1a2e"/>
-<!-- Eyebrows (furrowed - stressed) -->
-<path id="rajan-brow-left" d="M129,117 Q134,114 143,117" fill="none" stroke="#1a1a2e" stroke-width="2.5" stroke-linecap="round"/>
-<path id="rajan-brow-right" d="M153,117 Q162,114 167,117" fill="none" stroke="#1a1a2e" stroke-width="2.5" stroke-linecap="round"/>
-<!-- Mouth (tense/neutral) -->
-<path id="rajan-mouth" d="M139,140 Q148,143 157,140" fill="none" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round"/>
+<ellipse cx="159" cy="127" rx="6" ry="4.5" fill="#f5f0ea" stroke="#1a1a2e" stroke-width="1.5"/>
+<ellipse id="rajan-eye-right" cx="159" cy="127" rx="3" ry="3" fill="#2a1a0e"/>
+<ellipse cx="158" cy="126" rx="1" ry="1" fill="#fff" opacity=".7"/>
+<!-- Eyelids (half-closed, tired) -->
+<path d="M131,124 Q137,122 143,124" fill="url(#skinGrad)" stroke="none" opacity=".3"/>
+<path d="M153,124 Q159,122 165,124" fill="url(#skinGrad)" stroke="none" opacity=".3"/>
+<!-- Eyebrows (furrowed - stressed) — thicker, more expressive -->
+<path id="rajan-brow-left" d="M128,117 Q133,112 143,116" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
+<path id="rajan-brow-right" d="M153,116 Q163,112 168,117" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
+<!-- Mouth (tense frown) -->
+<path id="rajan-mouth" d="M139,144 Q148,147 157,144" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round"/>
+<!-- Lower lip shadow -->
+<path d="M141,146 Q148,149 155,146" fill="none" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
 <!-- Tension lines on forehead -->
-<line id="rajan-tension-1" x1="136" y1="108" x2="144" y2="108" stroke="#b8926a" stroke-width="1" opacity=".5"/>
-<line id="rajan-tension-2" x1="152" y1="108" x2="160" y2="108" stroke="#b8926a" stroke-width="1" opacity=".5"/>
+<line id="rajan-tension-1" x1="134" y1="108" x2="144" y2="108" stroke="#c49060" stroke-width="1.2" opacity=".4"/>
+<line id="rajan-tension-2" x1="152" y1="108" x2="162" y2="108" stroke="#c49060" stroke-width="1.2" opacity=".4"/>
+<line x1="136" y1="111" x2="142" y2="111" stroke="#c49060" stroke-width="1" opacity=".3"/>
+<!-- Under-eye bags (tired) -->
+<path d="M132,131 Q137,133 142,131" fill="none" stroke="rgba(100,70,50,.2)" stroke-width="1"/>
+<path d="M154,131 Q159,133 164,131" fill="none" stroke="rgba(100,70,50,.2)" stroke-width="1"/>
+<!-- Face shadow from screen glow (uplight) -->
+<path d="M122,145 Q148,155 174,145 Q174,160 148,165 Q122,160 122,145Z" fill="rgba(30,58,95,.12)"/>
 </svg>
 </div>
 
@@ -238,33 +449,71 @@ a:hover ~ #cursor, button:hover ~ #cursor, .cta-btn:hover ~ #cursor{width:18px;h
 <div class="scanlines"></div>
 <div class="noise-overlay"></div>
 
-<!-- Rajan at desk (relaxed version) -->
+<!-- Rajan at desk (relaxed version) — 3D enhanced -->
 <div class="scene-character" id="s01-rajan" style="position:absolute;left:8%;bottom:12%;">
 <svg width="280" height="320" viewBox="0 0 280 320" xmlns="http://www.w3.org/2000/svg">
-<rect x="40" y="230" width="220" height="12" rx="2" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
-<rect x="60" y="242" width="16" height="60" rx="2" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
-<rect x="220" y="242" width="16" height="60" rx="2" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
-<rect x="100" y="170" width="100" height="60" rx="3" fill="#111122" stroke="#1a1a2e" stroke-width="2"/>
-<rect id="s01-screen-glow" x="105" y="175" width="90" height="50" rx="2" fill="#1a5f3a" opacity=".6"/>
-<ellipse cx="150" cy="160" rx="80" ry="60" fill="url(#screenGlowGreen)" opacity=".3"/>
-<defs><radialGradient id="screenGlowGreen" cx="50%" cy="50%"><stop offset="0%" stop-color="#1a5f3a" stop-opacity=".4"/><stop offset="100%" stop-color="transparent" stop-opacity="0"/></radialGradient></defs>
-<rect x="110" y="245" width="80" height="40" rx="4" fill="#222238" stroke="#1a1a2e" stroke-width="2"/>
-<!-- Torso upright -->
-<path d="M125,225 Q130,185 145,172 Q155,167 165,172 Q175,185 172,225 Z" fill="#3d3558" stroke="#1a1a2e" stroke-width="2.5"/>
+<defs>
+<linearGradient id="skinGrad1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#deb587"/><stop offset="50%" stop-color="#d4a574"/><stop offset="100%" stop-color="#b8885a"/></linearGradient>
+<linearGradient id="shirtGrad1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4d4570"/><stop offset="100%" stop-color="#2d2540"/></linearGradient>
+<linearGradient id="hairGrad1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a2a40"/><stop offset="100%" stop-color="#0e0e1e"/></linearGradient>
+<radialGradient id="screenGlowGreen" cx="50%" cy="50%"><stop offset="0%" stop-color="#1a5f3a" stop-opacity=".4"/><stop offset="100%" stop-color="transparent" stop-opacity="0"/></radialGradient>
+<filter id="shadow1" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#000" flood-opacity=".35"/></filter>
+</defs>
+<!-- Desk -->
+<rect x="40" y="230" width="220" height="14" rx="2" fill="url(#deskGrad)" stroke="#1a1a2e" stroke-width="2"/>
+<rect x="42" y="231" width="216" height="4" rx="1" fill="rgba(255,255,255,.04)"/>
+<rect x="55" y="244" width="18" height="58" rx="3" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
+<rect x="222" y="244" width="18" height="58" rx="3" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
+<!-- Screen -->
+<rect x="98" y="168" width="104" height="62" rx="4" fill="#0a0a18" stroke="#1a1a2e" stroke-width="2"/>
+<rect id="s01-screen-glow" x="103" y="173" width="94" height="52" rx="3" fill="#1a5f3a" opacity=".6"/>
+<line x1="112" y1="185" x2="170" y2="185" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+<line x1="112" y1="192" x2="182" y2="192" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+<ellipse cx="150" cy="160" rx="85" ry="65" fill="url(#screenGlowGreen)" opacity=".3"/>
+<!-- Chair -->
+<path d="M108,248 Q110,240 150,238 Q190,240 192,248 L192,282 Q190,286 150,288 Q110,286 108,282 Z" fill="#222238" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M112,250 Q115,244 150,242 Q185,244 188,250 L188,256 Q185,252 150,250 Q115,252 112,256 Z" fill="rgba(255,255,255,.04)"/>
+<!-- Torso upright with gradient -->
+<path d="M125,228 Q128,188 143,174 Q153,168 163,174 Q178,188 175,228 Z" fill="url(#shirtGrad1)" stroke="#1a1a2e" stroke-width="2.5" filter="url(#shadow1)"/>
+<!-- Collar -->
+<path d="M138,172 Q143,168 150,172 Q152,176 150,178 Q143,174 138,178 Z" fill="#555078" stroke="#1a1a2e" stroke-width="1"/>
+<path d="M150,172 Q157,168 162,172 Q162,178 160,178 Q157,174 150,178 Z" fill="#555078" stroke="#1a1a2e" stroke-width="1"/>
 <!-- Arms relaxed -->
-<path d="M125,205 Q110,218 105,228" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
-<ellipse cx="104" cy="226" rx="7" ry="5" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
-<path d="M172,205 Q187,218 192,228" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
-<ellipse cx="194" cy="226" rx="7" ry="5" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
-<rect x="142" y="148" width="16" height="18" rx="4" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
-<ellipse cx="150" cy="128" rx="30" ry="34" fill="#d4a574" stroke="#1a1a2e" stroke-width="2.5"/>
-<path d="M120,118 Q122,90 150,85 Q178,90 180,118 Q177,105 150,100 Q123,105 120,118Z" fill="#1a1a2e"/>
-<ellipse cx="139" cy="125" rx="4" ry="3" fill="#1a1a2e"/>
-<ellipse cx="161" cy="125" rx="4" ry="3" fill="#1a1a2e"/>
-<path d="M131,117 Q137,115 145,118" fill="none" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round"/>
-<path d="M155,118 Q163,115 169,117" fill="none" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round"/>
+<path d="M125,208 Q110,220 104,230" fill="none" stroke="#1a1a2e" stroke-width="4" stroke-linecap="round"/>
+<path d="M125,208 Q110,220 104,230" fill="none" stroke="#3d3558" stroke-width="3" stroke-linecap="round"/>
+<ellipse cx="103" cy="228" rx="8" ry="6" fill="url(#skinGrad1)" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M172,208 Q187,220 194,230" fill="none" stroke="#1a1a2e" stroke-width="4" stroke-linecap="round"/>
+<path d="M172,208 Q187,220 194,230" fill="none" stroke="#3d3558" stroke-width="3" stroke-linecap="round"/>
+<ellipse cx="196" cy="228" rx="8" ry="6" fill="url(#skinGrad1)" stroke="#1a1a2e" stroke-width="2"/>
+<!-- Neck -->
+<path d="M140,170 Q142,154 150,150 Q158,154 160,170" fill="url(#skinGrad1)" stroke="#1a1a2e" stroke-width="2"/>
+<!-- Head -->
+<ellipse cx="150" cy="130" rx="32" ry="36" fill="url(#skinGrad1)" stroke="#1a1a2e" stroke-width="2.5" filter="url(#shadow1)"/>
+<!-- Ear -->
+<ellipse cx="180" cy="132" rx="5" ry="8" fill="url(#skinGrad1)" stroke="#1a1a2e" stroke-width="1.5"/>
+<ellipse cx="181" cy="132" rx="2.5" ry="4" fill="#c49060" opacity=".5"/>
+<!-- Hair -->
+<path d="M118,120 Q120,88 150,82 Q180,88 182,120 Q179,104 150,98 Q121,104 118,120Z" fill="url(#hairGrad1)" stroke="#1a1a2e" stroke-width="1.5"/>
+<path d="M127,95 Q142,90 157,92" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="2" stroke-linecap="round"/>
+<!-- Nose -->
+<path d="M150,128 Q148,134 145,138 Q149,140 153,138 Q151,134 150,128" fill="none" stroke="#b8885a" stroke-width="1.5" stroke-linecap="round" opacity=".7"/>
+<!-- Eyes with detail -->
+<ellipse cx="139" cy="127" rx="6" ry="4.5" fill="#f5f0ea" stroke="#1a1a2e" stroke-width="1.5"/>
+<ellipse cx="139" cy="127" rx="3" ry="3" fill="#2a1a0e"/>
+<ellipse cx="138" cy="126" rx="1" ry="1" fill="#fff" opacity=".7"/>
+<ellipse cx="161" cy="127" rx="6" ry="4.5" fill="#f5f0ea" stroke="#1a1a2e" stroke-width="1.5"/>
+<ellipse cx="161" cy="127" rx="3" ry="3" fill="#2a1a0e"/>
+<ellipse cx="160" cy="126" rx="1" ry="1" fill="#fff" opacity=".7"/>
+<!-- Relaxed eyebrows -->
+<path d="M131,118 Q137,116 145,119" fill="none" stroke="#1a1a2e" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M155,119 Q163,116 169,118" fill="none" stroke="#1a1a2e" stroke-width="2.5" stroke-linecap="round"/>
 <!-- Slight smile -->
-<path id="s01-mouth" d="M140,140 Q150,146 160,140" fill="none" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round"/>
+<path id="s01-mouth" d="M140,142 Q150,148 160,142" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round"/>
+<path d="M142,144 Q150,149 158,144" fill="none" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+<!-- Jawline -->
+<path d="M122,145 Q135,158 150,160 Q165,158 178,145" fill="none" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+<!-- Green screen glow on face -->
+<path d="M124,145 Q150,155 176,145 Q176,160 150,165 Q124,160 124,145Z" fill="rgba(26,95,58,.1)"/>
 </svg>
 </div>
 
@@ -310,41 +559,92 @@ He decides to scale.<br>Because the numbers make sense.<br>Because the margin is
 <div class="scanlines"></div>
 <div class="noise-overlay"></div>
 
-<!-- Rajan stressed at desk with red glow -->
+<!-- Rajan stressed at desk with red glow — 3D enhanced -->
 <div class="scene-character" id="s02-rajan" style="position:absolute;left:8%;bottom:12%;">
 <svg width="280" height="320" viewBox="0 0 280 320" xmlns="http://www.w3.org/2000/svg">
-<rect x="40" y="230" width="220" height="12" rx="2" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
-<rect x="60" y="242" width="16" height="60" rx="2" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
-<rect x="220" y="242" width="16" height="60" rx="2" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
-<rect x="100" y="170" width="100" height="60" rx="3" fill="#111122" stroke="#1a1a2e" stroke-width="2"/>
-<rect id="s02-screen-glow" x="105" y="175" width="90" height="50" rx="2" fill="#e8400c" opacity=".5"/>
-<ellipse id="s02-glow-aura" cx="150" cy="160" rx="80" ry="60" fill="url(#screenGlowRed)" opacity=".35"/>
-<defs><radialGradient id="screenGlowRed" cx="50%" cy="50%"><stop offset="0%" stop-color="#e8400c" stop-opacity=".5"/><stop offset="100%" stop-color="transparent" stop-opacity="0"/></radialGradient></defs>
-<rect x="110" y="245" width="80" height="40" rx="4" fill="#222238" stroke="#1a1a2e" stroke-width="2"/>
+<defs>
+<linearGradient id="skinGrad2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#deb587"/><stop offset="50%" stop-color="#d4a574"/><stop offset="100%" stop-color="#b8885a"/></linearGradient>
+<linearGradient id="shirtGrad2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4d4570"/><stop offset="100%" stop-color="#2d2540"/></linearGradient>
+<linearGradient id="hairGrad2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a2a40"/><stop offset="100%" stop-color="#0e0e1e"/></linearGradient>
+<radialGradient id="screenGlowRed" cx="50%" cy="50%"><stop offset="0%" stop-color="#e8400c" stop-opacity=".5"/><stop offset="100%" stop-color="transparent" stop-opacity="0"/></radialGradient>
+<filter id="shadow2" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#000" flood-opacity=".4"/></filter>
+<!-- Red ambient light filter -->
+<filter id="redAmbient"><feFlood flood-color="#e8400c" flood-opacity=".08" result="color"/><feBlend in="SourceGraphic" in2="color" mode="screen"/></filter>
+</defs>
+<!-- Desk -->
+<rect x="40" y="230" width="220" height="14" rx="2" fill="url(#deskGrad)" stroke="#1a1a2e" stroke-width="2"/>
+<rect x="42" y="231" width="216" height="4" rx="1" fill="rgba(232,64,12,.06)"/>
+<rect x="55" y="244" width="18" height="58" rx="3" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
+<rect x="222" y="244" width="18" height="58" rx="3" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
+<!-- Screen with red glow -->
+<rect x="98" y="168" width="104" height="62" rx="4" fill="#0a0a18" stroke="#1a1a2e" stroke-width="2"/>
+<rect id="s02-screen-glow" x="103" y="173" width="94" height="52" rx="3" fill="#e8400c" opacity=".5"/>
+<!-- Error text on screen -->
+<line x1="112" y1="185" x2="155" y2="185" stroke="rgba(232,64,12,.4)" stroke-width="1.5"/>
+<line x1="112" y1="192" x2="175" y2="192" stroke="rgba(232,64,12,.3)" stroke-width="1"/>
+<text x="120" y="210" font-family="DM Mono" font-size="6" fill="rgba(232,64,12,.5)">⚠ ERROR</text>
+<ellipse id="s02-glow-aura" cx="150" cy="160" rx="90" ry="68" fill="url(#screenGlowRed)" opacity=".4"/>
+<!-- Chair -->
+<path d="M108,248 Q110,240 150,238 Q190,240 192,248 L192,282 Q190,286 150,288 Q110,286 108,282 Z" fill="#222238" stroke="#1a1a2e" stroke-width="2"/>
 <!-- Hunched torso -->
-<path id="s02-torso" d="M118,225 Q122,195 138,178 Q152,170 165,178 Q178,195 175,225 Z" fill="#3d3558" stroke="#1a1a2e" stroke-width="2.5"/>
-<!-- Left arm holding head -->
-<path id="s02-arm-left" d="M118,212 Q103,222 98,228 Q92,224 100,205 Q110,185 128,165" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
-<ellipse cx="128" cy="163" rx="8" ry="6" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
+<path id="s02-torso" d="M116,228 Q120,196 136,180 Q148,172 162,180 Q178,196 175,228 Z" fill="url(#shirtGrad2)" stroke="#1a1a2e" stroke-width="2.5" filter="url(#shadow2)"/>
+<!-- Collar wrinkled -->
+<path d="M133,178 Q138,174 145,178 Q146,182 144,183 Q138,178 133,183 Z" fill="#555078" stroke="#1a1a2e" stroke-width="1"/>
+<path d="M145,178 Q152,174 158,178 Q158,183 156,183 Q152,178 145,183 Z" fill="#555078" stroke="#1a1a2e" stroke-width="1"/>
+<!-- Left arm holding head with fingers -->
+<path id="s02-arm-left" d="M116,214 Q101,224 96,232" fill="none" stroke="#1a1a2e" stroke-width="4" stroke-linecap="round"/>
+<path d="M116,214 Q101,224 96,232" fill="none" stroke="#3d3558" stroke-width="3" stroke-linecap="round"/>
+<path d="M96,232 Q92,224 98,208 Q108,188 126,168" fill="none" stroke="#1a1a2e" stroke-width="4" stroke-linecap="round"/>
+<path d="M96,232 Q92,224 98,208 Q108,188 126,168" fill="none" stroke="url(#skinGrad2)" stroke-width="2.5" stroke-linecap="round"/>
+<ellipse cx="126" cy="166" rx="9" ry="7" fill="url(#skinGrad2)" stroke="#1a1a2e" stroke-width="2"/>
+<!-- Fingers pressing into temple -->
+<path d="M120,162 Q122,156 126,154" fill="none" stroke="url(#skinGrad2)" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M124,160 Q127,155 130,154" fill="none" stroke="url(#skinGrad2)" stroke-width="2" stroke-linecap="round"/>
+<path d="M129,162 Q132,158 134,157" fill="none" stroke="url(#skinGrad2)" stroke-width="2" stroke-linecap="round"/>
 <!-- Right arm on desk -->
-<path d="M175,212 Q190,222 200,228" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
-<ellipse cx="202" cy="226" rx="7" ry="5" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
-<rect x="138" y="148" width="16" height="16" rx="4" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M175,214 Q192,224 202,232" fill="none" stroke="#1a1a2e" stroke-width="4" stroke-linecap="round"/>
+<path d="M175,214 Q192,224 202,232" fill="none" stroke="#3d3558" stroke-width="3" stroke-linecap="round"/>
+<ellipse cx="204" cy="230" rx="8" ry="6" fill="url(#skinGrad2)" stroke="#1a1a2e" stroke-width="2"/>
+<!-- Neck with shadow -->
+<path d="M136,172 Q138,155 146,150 Q154,155 156,172" fill="url(#skinGrad2)" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M140,168 Q146,163 152,168" fill="none" stroke="rgba(0,0,0,.15)" stroke-width="1"/>
 <!-- Head tilted down -->
-<ellipse id="s02-head" cx="146" cy="132" rx="30" ry="34" fill="#d4a574" stroke="#1a1a2e" stroke-width="2.5"/>
-<path d="M116,122 Q118,94 146,89 Q174,94 176,122 Q173,109 146,104 Q119,109 116,122Z" fill="#1a1a2e"/>
-<!-- Eyes squinting -->
-<ellipse cx="135" cy="129" rx="3.5" ry="2" fill="#1a1a2e"/>
-<ellipse cx="157" cy="129" rx="3.5" ry="2" fill="#1a1a2e"/>
-<!-- Furrowed brows -->
-<path d="M126,120 Q133,116 142,121" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
-<path d="M150,121 Q159,116 166,120" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
+<ellipse id="s02-head" cx="146" cy="134" rx="32" ry="36" fill="url(#skinGrad2)" stroke="#1a1a2e" stroke-width="2.5" filter="url(#shadow2)"/>
+<!-- Ear -->
+<ellipse cx="176" cy="136" rx="5" ry="8" fill="url(#skinGrad2)" stroke="#1a1a2e" stroke-width="1.5"/>
+<ellipse cx="177" cy="136" rx="2.5" ry="4" fill="#c49060" opacity=".5"/>
+<!-- Hair -->
+<path d="M114,124 Q116,96 146,91 Q176,96 178,124 Q175,111 146,106 Q117,111 114,124Z" fill="url(#hairGrad2)" stroke="#1a1a2e" stroke-width="1.5"/>
+<!-- Nose -->
+<path d="M146,130 Q144,136 141,140 Q145,142 149,140 Q147,136 146,130" fill="none" stroke="#b8885a" stroke-width="1.5" stroke-linecap="round" opacity=".7"/>
+<!-- Eyes squinting (stressed) with detail -->
+<ellipse cx="135" cy="131" rx="5" ry="3" fill="#f5f0ea" stroke="#1a1a2e" stroke-width="1.5"/>
+<ellipse cx="135" cy="131" rx="2.5" ry="2" fill="#2a1a0e"/>
+<ellipse cx="134" cy="130" rx=".8" ry=".8" fill="#fff" opacity=".5"/>
+<ellipse cx="157" cy="131" rx="5" ry="3" fill="#f5f0ea" stroke="#1a1a2e" stroke-width="1.5"/>
+<ellipse cx="157" cy="131" rx="2.5" ry="2" fill="#2a1a0e"/>
+<ellipse cx="156" cy="130" rx=".8" ry=".8" fill="#fff" opacity=".5"/>
+<!-- Heavy eyelids -->
+<path d="M130,129 Q135,126 140,129" fill="url(#skinGrad2)" stroke="none" opacity=".5"/>
+<path d="M152,129 Q157,126 162,129" fill="url(#skinGrad2)" stroke="none" opacity=".5"/>
+<!-- Deeply furrowed brows -->
+<path d="M125,121 Q132,116 141,122" fill="none" stroke="#1a1a2e" stroke-width="3.5" stroke-linecap="round"/>
+<path d="M151,122 Q160,116 167,121" fill="none" stroke="#1a1a2e" stroke-width="3.5" stroke-linecap="round"/>
 <!-- Frowning mouth -->
-<path d="M137,145 Q146,141 155,145" fill="none" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round"/>
-<!-- Tension lines -->
-<line x1="133" y1="111" x2="141" y2="111" stroke="#b8926a" stroke-width="1.2" opacity=".6"/>
-<line x1="151" y1="111" x2="159" y2="111" stroke="#b8926a" stroke-width="1.2" opacity=".6"/>
-<line x1="136" y1="114" x2="142" y2="114" stroke="#b8926a" stroke-width="1" opacity=".4"/>
+<path d="M137,148 Q146,143 155,148" fill="none" stroke="#8b5e3c" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M139,150 Q146,146 153,150" fill="none" stroke="rgba(0,0,0,.15)" stroke-width="1"/>
+<!-- Tension lines (more prominent) -->
+<line x1="132" y1="112" x2="142" y2="112" stroke="#c49060" stroke-width="1.5" opacity=".5"/>
+<line x1="150" y1="112" x2="160" y2="112" stroke="#c49060" stroke-width="1.5" opacity=".5"/>
+<line x1="134" y1="115" x2="140" y2="115" stroke="#c49060" stroke-width="1.2" opacity=".4"/>
+<line x1="152" y1="115" x2="158" y2="115" stroke="#c49060" stroke-width="1.2" opacity=".4"/>
+<!-- Under-eye stress bags -->
+<path d="M130,135 Q135,137 140,135" fill="none" stroke="rgba(150,80,60,.25)" stroke-width="1.2"/>
+<path d="M152,135 Q157,137 162,135" fill="none" stroke="rgba(150,80,60,.25)" stroke-width="1.2"/>
+<!-- Red screen glow on face -->
+<path d="M120,148 Q146,158 172,148 Q172,163 146,168 Q120,163 120,148Z" fill="rgba(232,64,12,.12)"/>
+<!-- Jawline -->
+<path d="M118,148 Q132,162 146,164 Q160,162 174,148" fill="none" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
 </svg>
 </div>
 
@@ -404,38 +704,70 @@ He duplicates the ad set.<br>Launches a new creative.<br>His agency says: 'Give 
 <div id="scene-03" class="scene" style="background:linear-gradient(135deg,var(--ink) 0%,#0d1520 100%);">
 <div class="noise-overlay"></div>
 
-<!-- Rajan STATE 2 — Realisation -->
+<!-- Rajan STATE 2 — Realisation — 3D enhanced -->
 <div class="scene-character" id="s03-rajan" style="position:absolute;left:6%;top:50%;transform:translateY(-50%);">
 <svg id="rajan-realisation" width="240" height="300" viewBox="0 0 240 300" xmlns="http://www.w3.org/2000/svg">
-<!-- Chair -->
-<rect x="70" y="230" width="100" height="35" rx="4" fill="#222238" stroke="#1a1a2e" stroke-width="2"/>
-<!-- Torso - sitting upright -->
-<path d="M95,225 Q100,180 120,165 Q140,158 150,165 Q165,180 160,225 Z" fill="#3d3558" stroke="#1a1a2e" stroke-width="2.5"/>
+<defs>
+<linearGradient id="skinGrad3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#deb587"/><stop offset="50%" stop-color="#d4a574"/><stop offset="100%" stop-color="#b8885a"/></linearGradient>
+<linearGradient id="shirtGrad3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4d4570"/><stop offset="100%" stop-color="#2d2540"/></linearGradient>
+<linearGradient id="hairGrad3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a2a40"/><stop offset="100%" stop-color="#0e0e1e"/></linearGradient>
+<radialGradient id="amberGlow" cx="50%" cy="50%"><stop offset="0%" stop-color="#d4a017" stop-opacity=".4"/><stop offset="100%" stop-color="transparent" stop-opacity="0"/></radialGradient>
+<filter id="shadow3" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#000" flood-opacity=".35"/></filter>
+</defs>
+<!-- Chair with depth -->
+<path d="M68,233 Q70,225 120,223 Q170,225 172,233 L172,265 Q170,269 120,271 Q70,269 68,265 Z" fill="#222238" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M72,235 Q75,229 120,227 Q165,229 168,235 L168,240 Q165,236 120,234 Q75,236 72,240 Z" fill="rgba(255,255,255,.04)"/>
+<!-- Torso - sitting upright with gradient -->
+<path d="M93,228 Q97,183 118,168 Q135,160 148,168 Q163,183 160,228 Z" fill="url(#shirtGrad3)" stroke="#1a1a2e" stroke-width="2.5" filter="url(#shadow3)"/>
+<!-- Collar -->
+<path d="M112,166 Q118,162 125,166 Q126,170 124,172 Q118,167 112,172 Z" fill="#555078" stroke="#1a1a2e" stroke-width="1"/>
+<path d="M125,166 Q132,162 138,166 Q138,172 136,172 Q132,167 125,172 Z" fill="#555078" stroke="#1a1a2e" stroke-width="1"/>
 <!-- Left arm relaxed -->
-<path d="M95,200 Q80,215 78,225" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
-<ellipse cx="77" cy="223" rx="7" ry="5" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M93,203 Q78,218 76,228" fill="none" stroke="#1a1a2e" stroke-width="4" stroke-linecap="round"/>
+<path d="M93,203 Q78,218 76,228" fill="none" stroke="#3d3558" stroke-width="3" stroke-linecap="round"/>
+<ellipse cx="75" cy="226" rx="8" ry="6" fill="url(#skinGrad3)" stroke="#1a1a2e" stroke-width="2"/>
 <!-- Right arm raised, finger pointing up -->
-<path id="s03-arm-right" d="M160,195 Q170,180 168,160 Q167,150 170,142" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
-<ellipse cx="170" cy="140" rx="6" ry="5" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
-<!-- Pointing finger -->
-<line x1="170" y1="140" x2="170" y2="128" stroke="#c9956b" stroke-width="3" stroke-linecap="round"/>
-<rect x="115" y="142" width="16" height="18" rx="4" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
+<path id="s03-arm-right" d="M160,198 Q170,183 168,163 Q167,153 170,145" fill="none" stroke="#1a1a2e" stroke-width="4" stroke-linecap="round"/>
+<path d="M160,198 Q170,183 168,163 Q167,153 170,145" fill="none" stroke="url(#skinGrad3)" stroke-width="2.5" stroke-linecap="round"/>
+<ellipse cx="170" cy="143" rx="7" ry="6" fill="url(#skinGrad3)" stroke="#1a1a2e" stroke-width="2"/>
+<!-- Pointing finger with detail -->
+<line x1="170" y1="143" x2="170" y2="128" stroke="url(#skinGrad3)" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="170" y1="128" x2="170" y2="122" stroke="#c9956b" stroke-width="2.5" stroke-linecap="round"/>
+<!-- Other fingers curled -->
+<path d="M166,142 Q164,138 165,135" fill="none" stroke="url(#skinGrad3)" stroke-width="2" stroke-linecap="round"/>
+<path d="M174,142 Q176,138 175,136" fill="none" stroke="url(#skinGrad3)" stroke-width="2" stroke-linecap="round"/>
+<!-- Neck -->
+<path d="M113,162 Q115,148 123,144 Q131,148 133,162" fill="url(#skinGrad3)" stroke="#1a1a2e" stroke-width="2"/>
 <!-- Head - tilted slightly -->
-<ellipse cx="123" cy="118" rx="30" ry="34" fill="#d4a574" stroke="#1a1a2e" stroke-width="2.5"/>
-<path d="M93,108 Q95,80 123,75 Q151,80 153,108 Q150,95 123,90 Q96,95 93,108Z" fill="#1a1a2e"/>
-<!-- Eyes wide open - realisation -->
-<ellipse cx="112" cy="115" rx="5" ry="4" fill="#fff" stroke="#1a1a2e" stroke-width="1.5"/>
-<ellipse cx="112" cy="115" rx="2.5" ry="2.5" fill="#1a1a2e"/>
-<ellipse cx="134" cy="115" rx="5" ry="4" fill="#fff" stroke="#1a1a2e" stroke-width="1.5"/>
-<ellipse cx="134" cy="115" rx="2.5" ry="2.5" fill="#1a1a2e"/>
-<!-- Raised eyebrows -->
-<path d="M103,105 Q110,101 120,105" fill="none" stroke="#1a1a2e" stroke-width="2.5" stroke-linecap="round"/>
-<path d="M126,105 Q133,101 140,105" fill="none" stroke="#1a1a2e" stroke-width="2.5" stroke-linecap="round"/>
+<ellipse cx="123" cy="120" rx="32" ry="36" fill="url(#skinGrad3)" stroke="#1a1a2e" stroke-width="2.5" filter="url(#shadow3)"/>
+<!-- Ear -->
+<ellipse cx="153" cy="122" rx="5" ry="8" fill="url(#skinGrad3)" stroke="#1a1a2e" stroke-width="1.5"/>
+<ellipse cx="154" cy="122" rx="2.5" ry="4" fill="#c49060" opacity=".5"/>
+<!-- Hair -->
+<path d="M91,110 Q93,82 123,77 Q153,82 155,110 Q152,97 123,92 Q94,97 91,110Z" fill="url(#hairGrad3)" stroke="#1a1a2e" stroke-width="1.5"/>
+<path d="M100,88 Q115,83 130,85" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="2" stroke-linecap="round"/>
+<!-- Nose -->
+<path d="M123,118 Q121,124 118,128 Q122,130 126,128 Q124,124 123,118" fill="none" stroke="#b8885a" stroke-width="1.5" stroke-linecap="round" opacity=".7"/>
+<!-- Eyes wide open - realisation with full detail -->
+<ellipse cx="112" cy="117" rx="6" ry="5" fill="#f5f0ea" stroke="#1a1a2e" stroke-width="1.5"/>
+<ellipse cx="112" cy="117" rx="3" ry="3" fill="#2a1a0e"/>
+<ellipse cx="111" cy="116" rx="1.2" ry="1.2" fill="#fff" opacity=".8"/>
+<ellipse cx="134" cy="117" rx="6" ry="5" fill="#f5f0ea" stroke="#1a1a2e" stroke-width="1.5"/>
+<ellipse cx="134" cy="117" rx="3" ry="3" fill="#2a1a0e"/>
+<ellipse cx="133" cy="116" rx="1.2" ry="1.2" fill="#fff" opacity=".8"/>
+<!-- Raised eyebrows (surprise/aha) -->
+<path d="M103,106 Q110,101 120,106" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
+<path d="M126,106 Q133,101 140,106" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
 <!-- Slightly open mouth - aha -->
-<ellipse cx="123" cy="133" rx="6" ry="4" fill="#8b5e3c" stroke="#1a1a2e" stroke-width="1.5"/>
-<!-- Screen glow shifted to amber -->
-<ellipse cx="123" cy="160" rx="60" ry="40" fill="url(#amberGlow)" opacity=".3"/>
-<defs><radialGradient id="amberGlow" cx="50%" cy="50%"><stop offset="0%" stop-color="#d4a017" stop-opacity=".4"/><stop offset="100%" stop-color="transparent" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="123" cy="135" rx="7" ry="5" fill="#8b5e3c" stroke="#1a1a2e" stroke-width="1.5"/>
+<!-- Teeth hint -->
+<line x1="119" y1="133" x2="127" y2="133" stroke="#f0ede6" stroke-width="1" opacity=".4"/>
+<!-- Jawline -->
+<path d="M95,135 Q108,150 123,152 Q138,150 151,135" fill="none" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+<!-- Amber glow on face -->
+<path d="M97,138 Q123,148 149,138 Q149,152 123,157 Q97,152 97,138Z" fill="rgba(212,160,23,.1)"/>
+<!-- Ambient amber glow -->
+<ellipse cx="123" cy="160" rx="65" ry="45" fill="url(#amberGlow)" opacity=".3"/>
 </svg>
 </div>
 
@@ -501,42 +833,91 @@ He duplicates the ad set.<br>Launches a new creative.<br>His agency says: 'Give 
 <!-- Golden glow from right -->
 <div style="position:absolute;right:0;top:0;width:40%;height:100%;background:radial-gradient(ellipse at right center,rgba(212,160,23,.06),transparent 70%);z-index:0;"></div>
 
-<!-- Rajan STATE 3 — Confident (standing) -->
+<!-- Rajan STATE 3 — Confident (standing) — 3D enhanced -->
 <div class="scene-character" id="s04-rajan" style="position:absolute;left:4%;top:50%;transform:translateY(-50%);opacity:0;">
 <svg id="rajan-confident" width="200" height="340" viewBox="0 0 200 340" xmlns="http://www.w3.org/2000/svg">
-<!-- Legs -->
-<rect x="75" y="240" width="20" height="80" rx="6" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
-<rect x="105" y="240" width="20" height="80" rx="6" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
-<!-- Shoes -->
-<ellipse cx="85" cy="322" rx="14" ry="6" fill="#1a1a2e"/>
-<ellipse cx="115" cy="322" rx="14" ry="6" fill="#1a1a2e"/>
-<!-- Torso - standing tall -->
-<path d="M70,240 Q75,180 95,155 Q100,150 105,155 Q125,180 130,240 Z" fill="#3d3558" stroke="#1a1a2e" stroke-width="2.5"/>
+<defs>
+<linearGradient id="skinGrad4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#deb587"/><stop offset="50%" stop-color="#d4a574"/><stop offset="100%" stop-color="#b8885a"/></linearGradient>
+<linearGradient id="shirtGrad4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4d4570"/><stop offset="100%" stop-color="#2d2540"/></linearGradient>
+<linearGradient id="pantGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#35354e"/><stop offset="50%" stop-color="#2a2a3e"/><stop offset="100%" stop-color="#222236"/></linearGradient>
+<linearGradient id="hairGrad4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a2a40"/><stop offset="100%" stop-color="#0e0e1e"/></linearGradient>
+<radialGradient id="goldenAbove" cx="50%" cy="80%"><stop offset="0%" stop-color="#d4a017" stop-opacity=".4"/><stop offset="100%" stop-color="transparent" stop-opacity="0"/></radialGradient>
+<filter id="shadow4" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#000" flood-opacity=".35"/></filter>
+</defs>
+<!-- Ground shadow -->
+<ellipse cx="100" cy="326" rx="40" ry="6" fill="rgba(0,0,0,.2)"/>
+<!-- Legs with 3D shading -->
+<path d="M78,242 Q76,280 78,316 Q80,322 88,322 Q94,322 92,316 Q90,280 92,242 Z" fill="url(#pantGrad)" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M108,242 Q106,280 108,316 Q110,322 118,322 Q124,322 122,316 Q120,280 118,242 Z" fill="url(#pantGrad)" stroke="#1a1a2e" stroke-width="2"/>
+<!-- Inner leg highlights -->
+<path d="M82,250 Q83,280 82,310" fill="none" stroke="rgba(255,255,255,.04)" stroke-width="2"/>
+<path d="M112,250 Q113,280 112,310" fill="none" stroke="rgba(255,255,255,.04)" stroke-width="2"/>
+<!-- Shoes with depth -->
+<path d="M72,318 Q78,314 92,316 Q96,318 96,322 Q90,326 72,324 Z" fill="#1a1a2e" stroke="#0a0a14" stroke-width="1.5"/>
+<path d="M104,316 Q118,314 128,318 Q130,324 118,326 Q106,326 104,322 Z" fill="#1a1a2e" stroke="#0a0a14" stroke-width="1.5"/>
+<!-- Shoe highlights -->
+<path d="M76,320 Q84,317 90,318" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+<path d="M108,318 Q116,316 124,319" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+<!-- Torso - standing tall with gradient -->
+<path d="M68,242 Q73,182 93,157 Q100,150 107,157 Q127,182 132,242 Z" fill="url(#shirtGrad4)" stroke="#1a1a2e" stroke-width="2.5" filter="url(#shadow4)"/>
+<!-- Shirt shoulder seams -->
+<path d="M73,180 Q80,172 93,168" fill="none" stroke="rgba(0,0,0,.15)" stroke-width="1"/>
+<path d="M127,180 Q120,172 107,168" fill="none" stroke="rgba(0,0,0,.15)" stroke-width="1"/>
+<!-- Shirt fold lines -->
+<path d="M88,190 Q92,210 90,235" fill="none" stroke="rgba(0,0,0,.08)" stroke-width="1"/>
+<path d="M112,190 Q108,210 110,235" fill="none" stroke="rgba(0,0,0,.08)" stroke-width="1"/>
+<!-- Collar -->
+<path d="M88,158 Q94,152 100,158 Q102,164 100,166 Q94,160 88,166 Z" fill="#555078" stroke="#1a1a2e" stroke-width="1"/>
+<path d="M100,158 Q106,152 112,158 Q112,166 110,166 Q106,160 100,166 Z" fill="#555078" stroke="#1a1a2e" stroke-width="1"/>
+<!-- Belt -->
+<rect x="72" y="238" width="56" height="5" rx="1" fill="#1a1a2e" opacity=".6"/>
+<rect x="96" y="237" width="8" height="7" rx="1" fill="#888" opacity=".3"/>
 <!-- Left arm open -->
-<path d="M70,195 Q50,210 40,220 Q35,225 38,218" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
-<ellipse cx="38" cy="220" rx="7" ry="5" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M68,198 Q48,213 38,223" fill="none" stroke="#1a1a2e" stroke-width="4" stroke-linecap="round"/>
+<path d="M68,198 Q48,213 38,223" fill="none" stroke="url(#skinGrad4)" stroke-width="2.5" stroke-linecap="round"/>
+<ellipse cx="36" cy="224" rx="8" ry="6" fill="url(#skinGrad4)" stroke="#1a1a2e" stroke-width="2"/>
+<!-- Fingers spread open -->
+<path d="M30,222 Q28,218 30,215" fill="none" stroke="url(#skinGrad4)" stroke-width="2" stroke-linecap="round"/>
+<path d="M34,220 Q32,216 33,213" fill="none" stroke="url(#skinGrad4)" stroke-width="1.8" stroke-linecap="round"/>
+<path d="M38,220 Q38,215 39,212" fill="none" stroke="url(#skinGrad4)" stroke-width="1.8" stroke-linecap="round"/>
 <!-- Right arm open -->
-<path d="M130,195 Q150,210 160,220 Q165,225 162,218" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
-<ellipse cx="162" cy="220" rx="7" ry="5" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M132,198 Q152,213 162,223" fill="none" stroke="#1a1a2e" stroke-width="4" stroke-linecap="round"/>
+<path d="M132,198 Q152,213 162,223" fill="none" stroke="url(#skinGrad4)" stroke-width="2.5" stroke-linecap="round"/>
+<ellipse cx="164" cy="224" rx="8" ry="6" fill="url(#skinGrad4)" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M170,222 Q172,218 170,215" fill="none" stroke="url(#skinGrad4)" stroke-width="2" stroke-linecap="round"/>
+<path d="M166,220 Q168,216 167,213" fill="none" stroke="url(#skinGrad4)" stroke-width="1.8" stroke-linecap="round"/>
 <!-- Neck -->
-<rect x="92" y="132" width="16" height="20" rx="4" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M92,155 Q94,138 100,134 Q106,138 108,155" fill="url(#skinGrad4)" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M96,150 Q100,146 104,150" fill="none" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
 <!-- Head -->
-<ellipse cx="100" cy="110" rx="30" ry="34" fill="#d4a574" stroke="#1a1a2e" stroke-width="2.5"/>
+<ellipse cx="100" cy="112" rx="32" ry="36" fill="url(#skinGrad4)" stroke="#1a1a2e" stroke-width="2.5" filter="url(#shadow4)"/>
+<!-- Ear -->
+<ellipse cx="130" cy="114" rx="5" ry="8" fill="url(#skinGrad4)" stroke="#1a1a2e" stroke-width="1.5"/>
+<ellipse cx="131" cy="114" rx="2.5" ry="4" fill="#c49060" opacity=".5"/>
+<!-- Jawline -->
+<path d="M72,127 Q86,142 100,144 Q114,142 128,127" fill="none" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
 <!-- Hair -->
-<path d="M70,100 Q72,72 100,67 Q128,72 130,100 Q127,87 100,82 Q73,87 70,100Z" fill="#1a1a2e"/>
-<!-- Eyes - calm confident -->
-<ellipse cx="89" cy="107" rx="4" ry="3.5" fill="#fff" stroke="#1a1a2e" stroke-width="1.5"/>
-<ellipse cx="89" cy="107" rx="2" ry="2" fill="#1a1a2e"/>
-<ellipse cx="111" cy="107" rx="4" ry="3.5" fill="#fff" stroke="#1a1a2e" stroke-width="1.5"/>
-<ellipse cx="111" cy="107" rx="2" ry="2" fill="#1a1a2e"/>
+<path d="M68,102 Q70,74 100,69 Q130,74 132,102 Q129,89 100,84 Q71,89 68,102Z" fill="url(#hairGrad4)" stroke="#1a1a2e" stroke-width="1.5"/>
+<path d="M78,80 Q95,75 112,78" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="2" stroke-linecap="round"/>
+<!-- Nose -->
+<path d="M100,110 Q98,116 95,120 Q99,122 103,120 Q101,116 100,110" fill="none" stroke="#b8885a" stroke-width="1.5" stroke-linecap="round" opacity=".7"/>
+<!-- Eyes - calm confident with detail -->
+<ellipse cx="89" cy="109" rx="6" ry="4.5" fill="#f5f0ea" stroke="#1a1a2e" stroke-width="1.5"/>
+<ellipse cx="89" cy="109" rx="2.5" ry="2.5" fill="#2a1a0e"/>
+<ellipse cx="88" cy="108" rx="1" ry="1" fill="#fff" opacity=".7"/>
+<ellipse cx="111" cy="109" rx="6" ry="4.5" fill="#f5f0ea" stroke="#1a1a2e" stroke-width="1.5"/>
+<ellipse cx="111" cy="109" rx="2.5" ry="2.5" fill="#2a1a0e"/>
+<ellipse cx="110" cy="108" rx="1" ry="1" fill="#fff" opacity=".7"/>
 <!-- Relaxed eyebrows -->
-<path d="M81,99 Q87,97 96,99" fill="none" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round"/>
-<path d="M104,99 Q113,97 119,99" fill="none" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round"/>
+<path d="M81,101 Q87,99 96,101" fill="none" stroke="#1a1a2e" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M104,101 Q113,99 119,101" fill="none" stroke="#1a1a2e" stroke-width="2.5" stroke-linecap="round"/>
 <!-- Confident half-smile -->
-<path d="M90,122 Q100,128 110,124" fill="none" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round"/>
+<path d="M90,125 Q100,131 110,127" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round"/>
+<path d="M92,127 Q100,132 108,129" fill="none" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
 <!-- Golden glow from above -->
-<ellipse cx="100" cy="60" rx="50" ry="40" fill="url(#goldenAbove)" opacity=".25"/>
-<defs><radialGradient id="goldenAbove" cx="50%" cy="80%"><stop offset="0%" stop-color="#d4a017" stop-opacity=".4"/><stop offset="100%" stop-color="transparent" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="100" cy="62" rx="55" ry="45" fill="url(#goldenAbove)" opacity=".25"/>
+<!-- Golden face glow -->
+<path d="M74,128 Q100,138 126,128 Q126,142 100,147 Q74,142 74,128Z" fill="rgba(212,160,23,.06)"/>
 </svg>
 </div>
 
@@ -641,28 +1022,38 @@ This is the unlock nobody talks about.<br>You're not just tracking who converts.
 <!-- Slight warm lightening -->
 <div style="position:absolute;top:0;right:0;width:60%;height:100%;background:radial-gradient(ellipse at top right,rgba(212,160,23,.04),transparent 60%);z-index:0;"></div>
 
-<!-- Rajan small, observing -->
+<!-- Rajan small, observing — 3D enhanced -->
 <div class="scene-character" id="s05-rajan" style="position:absolute;left:3%;bottom:10%;opacity:.6;transform:scale(.6);transform-origin:bottom left;">
 <svg width="200" height="340" viewBox="0 0 200 340" xmlns="http://www.w3.org/2000/svg">
-<rect x="75" y="240" width="20" height="80" rx="6" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
-<rect x="105" y="240" width="20" height="80" rx="6" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
-<ellipse cx="85" cy="322" rx="14" ry="6" fill="#1a1a2e"/>
-<ellipse cx="115" cy="322" rx="14" ry="6" fill="#1a1a2e"/>
-<path d="M70,240 Q75,180 95,155 Q100,150 105,155 Q125,180 130,240 Z" fill="#3d3558" stroke="#1a1a2e" stroke-width="2.5"/>
-<path d="M70,195 Q55,208 48,215" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
-<ellipse cx="47" cy="217" rx="7" ry="5" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
-<path d="M130,195 Q145,208 152,215" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
-<ellipse cx="154" cy="217" rx="7" ry="5" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
-<rect x="92" y="132" width="16" height="20" rx="4" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
-<ellipse cx="100" cy="110" rx="30" ry="34" fill="#d4a574" stroke="#1a1a2e" stroke-width="2.5"/>
-<path d="M70,100 Q72,72 100,67 Q128,72 130,100 Q127,87 100,82 Q73,87 70,100Z" fill="#1a1a2e"/>
-<ellipse cx="89" cy="107" rx="4" ry="3.5" fill="#fff" stroke="#1a1a2e" stroke-width="1.5"/>
-<ellipse cx="89" cy="107" rx="2" ry="2" fill="#1a1a2e"/>
-<ellipse cx="111" cy="107" rx="4" ry="3.5" fill="#fff" stroke="#1a1a2e" stroke-width="1.5"/>
-<ellipse cx="111" cy="107" rx="2" ry="2" fill="#1a1a2e"/>
-<path d="M81,99 Q87,97 96,99" fill="none" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round"/>
-<path d="M104,99 Q113,97 119,99" fill="none" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round"/>
-<path d="M90,122 Q100,128 110,124" fill="none" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round"/>
+<defs>
+<linearGradient id="skinGrad5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#deb587"/><stop offset="100%" stop-color="#b8885a"/></linearGradient>
+<linearGradient id="shirtGrad5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4d4570"/><stop offset="100%" stop-color="#2d2540"/></linearGradient>
+<filter id="shadow5" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#000" flood-opacity=".3"/></filter>
+</defs>
+<ellipse cx="100" cy="326" rx="35" ry="5" fill="rgba(0,0,0,.15)"/>
+<path d="M78,242 Q76,280 78,316 Q80,322 88,322 Q94,322 92,316 Q90,280 92,242 Z" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M108,242 Q106,280 108,316 Q110,322 118,322 Q124,322 122,316 Q120,280 118,242 Z" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M72,318 Q78,314 92,316 Q96,322 72,324 Z" fill="#1a1a2e"/>
+<path d="M104,316 Q118,314 128,318 Q130,324 104,322 Z" fill="#1a1a2e"/>
+<path d="M68,242 Q73,182 93,157 Q100,150 107,157 Q127,182 132,242 Z" fill="url(#shirtGrad5)" stroke="#1a1a2e" stroke-width="2.5" filter="url(#shadow5)"/>
+<path d="M68,198 Q50,213 42,220" fill="none" stroke="url(#skinGrad5)" stroke-width="3" stroke-linecap="round"/>
+<ellipse cx="40" cy="222" rx="7" ry="5" fill="url(#skinGrad5)" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M132,198 Q150,213 158,220" fill="none" stroke="url(#skinGrad5)" stroke-width="3" stroke-linecap="round"/>
+<ellipse cx="160" cy="222" rx="7" ry="5" fill="url(#skinGrad5)" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M92,155 Q94,138 100,134 Q106,138 108,155" fill="url(#skinGrad5)" stroke="#1a1a2e" stroke-width="2"/>
+<ellipse cx="100" cy="112" rx="30" ry="34" fill="url(#skinGrad5)" stroke="#1a1a2e" stroke-width="2.5" filter="url(#shadow5)"/>
+<ellipse cx="128" cy="114" rx="4" ry="7" fill="url(#skinGrad5)" stroke="#1a1a2e" stroke-width="1.5"/>
+<path d="M70,102 Q72,74 100,69 Q128,74 130,102 Q127,89 100,84 Q73,89 70,102Z" fill="#1a1a2e"/>
+<path d="M100,110 Q98,116 96,119 Q100,121 104,119 Q102,116 100,110" fill="none" stroke="#b8885a" stroke-width="1.5" opacity=".6"/>
+<ellipse cx="89" cy="109" rx="5" ry="4" fill="#f5f0ea" stroke="#1a1a2e" stroke-width="1.5"/>
+<ellipse cx="89" cy="109" rx="2" ry="2" fill="#2a1a0e"/>
+<ellipse cx="88" cy="108" rx=".8" ry=".8" fill="#fff" opacity=".6"/>
+<ellipse cx="111" cy="109" rx="5" ry="4" fill="#f5f0ea" stroke="#1a1a2e" stroke-width="1.5"/>
+<ellipse cx="111" cy="109" rx="2" ry="2" fill="#2a1a0e"/>
+<ellipse cx="110" cy="108" rx=".8" ry=".8" fill="#fff" opacity=".6"/>
+<path d="M81,101 Q87,99 96,101" fill="none" stroke="#1a1a2e" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M104,101 Q113,99 119,101" fill="none" stroke="#1a1a2e" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M90,125 Q100,131 110,127" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round"/>
 </svg>
 </div>
 
@@ -705,28 +1096,37 @@ This is the unlock nobody talks about.<br>You're not just tracking who converts.
 <!-- Warm golden gradient from right -->
 <div style="position:absolute;right:0;top:0;width:50%;height:100%;background:radial-gradient(ellipse at right center,rgba(212,160,23,.05),transparent 70%);z-index:0;"></div>
 
-<!-- Rajan small bottom left -->
+<!-- Rajan small bottom left — 3D enhanced -->
 <div class="scene-character" style="position:absolute;left:3%;bottom:5%;opacity:.4;transform:scale(.45);transform-origin:bottom left;">
 <svg width="200" height="340" viewBox="0 0 200 340" xmlns="http://www.w3.org/2000/svg">
-<rect x="75" y="240" width="20" height="80" rx="6" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
-<rect x="105" y="240" width="20" height="80" rx="6" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
-<ellipse cx="85" cy="322" rx="14" ry="6" fill="#1a1a2e"/>
-<ellipse cx="115" cy="322" rx="14" ry="6" fill="#1a1a2e"/>
-<path d="M70,240 Q75,180 95,155 Q100,150 105,155 Q125,180 130,240 Z" fill="#3d3558" stroke="#1a1a2e" stroke-width="2.5"/>
-<path d="M70,195 Q55,208 48,215" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
-<ellipse cx="47" cy="217" rx="7" ry="5" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
-<path d="M130,195 Q145,208 152,215" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
-<ellipse cx="154" cy="217" rx="7" ry="5" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
-<rect x="92" y="132" width="16" height="20" rx="4" fill="#c9956b" stroke="#1a1a2e" stroke-width="2"/>
-<ellipse cx="100" cy="110" rx="30" ry="34" fill="#d4a574" stroke="#1a1a2e" stroke-width="2.5"/>
-<path d="M70,100 Q72,72 100,67 Q128,72 130,100 Q127,87 100,82 Q73,87 70,100Z" fill="#1a1a2e"/>
-<ellipse cx="89" cy="107" rx="4" ry="3.5" fill="#fff" stroke="#1a1a2e" stroke-width="1.5"/>
-<ellipse cx="89" cy="107" rx="2" ry="2" fill="#1a1a2e"/>
-<ellipse cx="111" cy="107" rx="4" ry="3.5" fill="#fff" stroke="#1a1a2e" stroke-width="1.5"/>
-<ellipse cx="111" cy="107" rx="2" ry="2" fill="#1a1a2e"/>
-<path d="M81,99 Q87,97 96,99" fill="none" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round"/>
-<path d="M104,99 Q113,97 119,99" fill="none" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round"/>
-<path d="M90,122 Q100,128 110,124" fill="none" stroke="#1a1a2e" stroke-width="2" stroke-linecap="round"/>
+<defs>
+<linearGradient id="skinGrad6" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#deb587"/><stop offset="100%" stop-color="#b8885a"/></linearGradient>
+<linearGradient id="shirtGrad6" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4d4570"/><stop offset="100%" stop-color="#2d2540"/></linearGradient>
+<filter id="shadow6" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#000" flood-opacity=".3"/></filter>
+</defs>
+<ellipse cx="100" cy="326" rx="35" ry="5" fill="rgba(0,0,0,.15)"/>
+<path d="M78,242 Q76,280 78,316 Q80,322 88,322 Q94,322 92,316 Q90,280 92,242 Z" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M108,242 Q106,280 108,316 Q110,322 118,322 Q124,322 122,316 Q120,280 118,242 Z" fill="#2a2a3e" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M72,318 Q78,314 92,316 Q96,322 72,324 Z" fill="#1a1a2e"/>
+<path d="M104,316 Q118,314 128,318 Q130,324 104,322 Z" fill="#1a1a2e"/>
+<path d="M68,242 Q73,182 93,157 Q100,150 107,157 Q127,182 132,242 Z" fill="url(#shirtGrad6)" stroke="#1a1a2e" stroke-width="2.5" filter="url(#shadow6)"/>
+<path d="M68,198 Q50,213 42,220" fill="none" stroke="url(#skinGrad6)" stroke-width="3" stroke-linecap="round"/>
+<ellipse cx="40" cy="222" rx="7" ry="5" fill="url(#skinGrad6)" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M132,198 Q150,213 158,220" fill="none" stroke="url(#skinGrad6)" stroke-width="3" stroke-linecap="round"/>
+<ellipse cx="160" cy="222" rx="7" ry="5" fill="url(#skinGrad6)" stroke="#1a1a2e" stroke-width="2"/>
+<path d="M92,155 Q94,138 100,134 Q106,138 108,155" fill="url(#skinGrad6)" stroke="#1a1a2e" stroke-width="2"/>
+<ellipse cx="100" cy="112" rx="30" ry="34" fill="url(#skinGrad6)" stroke="#1a1a2e" stroke-width="2.5" filter="url(#shadow6)"/>
+<ellipse cx="128" cy="114" rx="4" ry="7" fill="url(#skinGrad6)" stroke="#1a1a2e" stroke-width="1.5"/>
+<path d="M70,102 Q72,74 100,69 Q128,74 130,102 Q127,89 100,84 Q73,89 70,102Z" fill="#1a1a2e"/>
+<ellipse cx="89" cy="109" rx="5" ry="4" fill="#f5f0ea" stroke="#1a1a2e" stroke-width="1.5"/>
+<ellipse cx="89" cy="109" rx="2" ry="2" fill="#2a1a0e"/>
+<ellipse cx="88" cy="108" rx=".8" ry=".8" fill="#fff" opacity=".6"/>
+<ellipse cx="111" cy="109" rx="5" ry="4" fill="#f5f0ea" stroke="#1a1a2e" stroke-width="1.5"/>
+<ellipse cx="111" cy="109" rx="2" ry="2" fill="#2a1a0e"/>
+<ellipse cx="110" cy="108" rx=".8" ry=".8" fill="#fff" opacity=".6"/>
+<path d="M81,101 Q87,99 96,101" fill="none" stroke="#1a1a2e" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M104,101 Q113,99 119,101" fill="none" stroke="#1a1a2e" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M90,125 Q100,131 110,127" fill="none" stroke="#8b5e3c" stroke-width="2" stroke-linecap="round"/>
 </svg>
 </div>
 
@@ -774,39 +1174,57 @@ No pitch unless there's a genuine fit.
 // ═══════════════════════════════════════════════
 gsap.registerPlugin(ScrollTrigger);
 
-// ── Custom Cursor ──
+// ── Mobile detection ──
+const isMobile = window.innerWidth <= 768;
+const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+// Scroll budget multiplier: reduce by 40% on mobile
+const scrollMult = isMobile ? 0.6 : 1;
+
+// ── Custom Cursor (skip on touch devices) ──
 const cursor = document.getElementById('cursor');
 const cursorRing = document.getElementById('cursor-ring');
-let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
-
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX; mouseY = e.clientY;
-});
-
-function updateCursor() {
-  cursorX += (mouseX - cursorX) * 0.15;
-  cursorY += (mouseY - cursorY) * 0.15;
-  cursor.style.left = mouseX + 'px';
-  cursor.style.top = mouseY + 'px';
-  cursorRing.style.left = cursorX + 'px';
-  cursorRing.style.top = cursorY + 'px';
-  requestAnimationFrame(updateCursor);
+if (!isTouch) {
+  let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX; mouseY = e.clientY;
+  });
+  function updateCursor() {
+    cursorX += (mouseX - cursorX) * 0.15;
+    cursorY += (mouseY - cursorY) * 0.15;
+    cursor.style.left = mouseX + 'px';
+    cursor.style.top = mouseY + 'px';
+    cursorRing.style.left = cursorX + 'px';
+    cursorRing.style.top = cursorY + 'px';
+    requestAnimationFrame(updateCursor);
+  }
+  updateCursor();
+} else {
+  cursor.style.display = 'none';
+  cursorRing.style.display = 'none';
 }
-updateCursor();
 
-// Expand cursor on interactive elements
-document.querySelectorAll('a, button, .cta-btn, .play-btn, .nav-cta').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.style.width = '18px'; cursor.style.height = '18px';
-    cursorRing.style.width = '48px'; cursorRing.style.height = '48px';
-    cursorRing.style.opacity = '.3';
+// ── Hero animation on load ──
+gsap.from('#hero .hero-line', { scaleX: 0, duration: 0.6, delay: 0.2, ease: 'power2.out' });
+gsap.from('#hero .hero-eyebrow', { opacity: 0, y: 20, duration: 0.6, delay: 0.4 });
+gsap.from('#hero .hero-headline', { opacity: 0, y: 30, duration: 0.8, delay: 0.6 });
+gsap.from('#hero .hero-sub', { opacity: 0, y: 20, duration: 0.6, delay: 1 });
+gsap.from('#hero .scroll-indicator', { opacity: 0, duration: 0.6, delay: 1.4 });
+
+// Expand cursor on interactive elements (desktop only)
+if (!isTouch) {
+  document.querySelectorAll('a, button, .cta-btn, .play-btn, .nav-cta').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width = '18px'; cursor.style.height = '18px';
+      cursorRing.style.width = '48px'; cursorRing.style.height = '48px';
+      cursorRing.style.opacity = '.3';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width = '8px'; cursor.style.height = '8px';
+      cursorRing.style.width = '28px'; cursorRing.style.height = '28px';
+      cursorRing.style.opacity = '.5';
+    });
   });
-  el.addEventListener('mouseleave', () => {
-    cursor.style.width = '8px'; cursor.style.height = '8px';
-    cursorRing.style.width = '28px'; cursorRing.style.height = '28px';
-    cursorRing.style.opacity = '.5';
-  });
-});
+}
 
 // ── Progress Bar ──
 const progressBar = document.getElementById('progress-bar');
@@ -867,7 +1285,7 @@ const s00 = gsap.timeline({
   scrollTrigger: {
     trigger: '#scene-00',
     start: 'top top',
-    end: '+=800',
+    end: '+=' + (800 * scrollMult),
     pin: true,
     scrub: 0.5,
     anticipatePin: 1,
@@ -905,7 +1323,7 @@ const s01 = gsap.timeline({
   scrollTrigger: {
     trigger: '#scene-01',
     start: 'top top',
-    end: '+=1000',
+    end: '+=' + (1000 * scrollMult),
     pin: true,
     scrub: 0.5,
     anticipatePin: 1,
@@ -936,7 +1354,7 @@ const s02 = gsap.timeline({
   scrollTrigger: {
     trigger: '#scene-02',
     start: 'top top',
-    end: '+=1200',
+    end: '+=' + (1200 * scrollMult),
     pin: true,
     scrub: 0.5,
     anticipatePin: 1,
@@ -990,7 +1408,7 @@ const s03 = gsap.timeline({
   scrollTrigger: {
     trigger: '#scene-03',
     start: 'top top',
-    end: '+=1000',
+    end: '+=' + (1000 * scrollMult),
     pin: true,
     scrub: 0.5,
     anticipatePin: 1,
@@ -1039,7 +1457,7 @@ const s04 = gsap.timeline({
   scrollTrigger: {
     trigger: '#scene-04',
     start: 'top top',
-    end: '+=1400',
+    end: '+=' + (1400 * scrollMult),
     pin: true,
     scrub: 0.5,
     anticipatePin: 1,
@@ -1092,7 +1510,7 @@ const s05 = gsap.timeline({
   scrollTrigger: {
     trigger: '#scene-05',
     start: 'top top',
-    end: '+=800',
+    end: '+=' + (800 * scrollMult),
     pin: true,
     scrub: 0.5,
     anticipatePin: 1,
