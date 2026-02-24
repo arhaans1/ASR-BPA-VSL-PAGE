@@ -31,24 +31,24 @@ a:hover ~ #cursor, button:hover ~ #cursor, .cta-btn:hover ~ #cursor{width:18px;h
 .nav-chapter{font-family:'DM Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:2px;}
 .nav-cta{font-family:'DM Mono',monospace;font-size:11px;color:var(--accent);border:1px solid var(--accent);padding:6px 14px;text-decoration:none;letter-spacing:1px;transition:background .3s,color .3s;cursor:none;}
 .nav-cta:hover{background:var(--accent);color:#fff;}
-/* Scenes */
-.scene{width:100vw;height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+/* Scenes — centered vertical flow */
+.scene{width:100vw;height:100vh;position:relative;overflow:hidden;}
 .scene-bg{position:absolute;inset:0;z-index:0;}
-.scene-content{position:relative;z-index:2;width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
-.scene-character{position:absolute;z-index:1;}
+.scene-content{position:relative;z-index:2;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:70px 24px 24px;gap:10px;overflow:hidden;}
+.scene-character{display:none;}
 /* Noise texture overlay */
 .noise-overlay{position:absolute;inset:0;opacity:.035;z-index:1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-repeat:repeat;background-size:128px;}
 /* Scanline overlay */
 .scanlines{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.04;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(240,237,230,.08) 2px,rgba(240,237,230,.08) 4px);}
 /* Caption box — graphic novel style */
-.caption-box{background:var(--paper);color:var(--charcoal);font-family:'DM Mono',monospace;font-size:clamp(11px,1.2vw,14px);line-height:1.7;padding:14px 18px;border-left:3px solid var(--charcoal);max-width:300px;position:absolute;box-shadow:4px 4px 0 rgba(0,0,0,.5);opacity:0;z-index:5;}
+.caption-box{background:var(--paper);color:var(--charcoal);font-family:'DM Mono',monospace;font-size:clamp(11px,1.2vw,14px);line-height:1.7;padding:14px 18px;border-left:3px solid var(--charcoal);max-width:520px;width:100%;box-shadow:4px 4px 0 rgba(0,0,0,.5);opacity:0;z-index:5;flex-shrink:0;}
 .caption-box.accent{background:var(--accent);color:#fff;border-left-color:#fff;}
 .caption-box.dark{background:rgba(13,13,15,.92);color:var(--paper);border-left-color:var(--accent);}
 .caption-box.gold{background:var(--gold);color:var(--ink);border-left-color:var(--ink);}
 /* Chapter label box */
-.chapter-label{font-family:'Bebas Neue',sans-serif;font-size:clamp(12px,1.2vw,14px);letter-spacing:3px;padding:8px 16px;position:absolute;z-index:5;opacity:0;}
+.chapter-label{font-family:'Bebas Neue',sans-serif;font-size:clamp(12px,1.2vw,14px);letter-spacing:3px;padding:8px 16px;z-index:5;opacity:0;flex-shrink:0;}
 /* Dashboard card */
-.dashboard-card{background:rgba(13,13,15,.9);border:1px solid var(--border);border-radius:0;padding:20px 24px;font-family:'DM Mono',monospace;font-size:clamp(11px,1.1vw,13px);line-height:1.8;position:absolute;z-index:5;opacity:0;backdrop-filter:blur(6px);max-width:340px;}
+.dashboard-card{background:rgba(13,13,15,.9);border:1px solid var(--border);border-radius:0;padding:20px 24px;font-family:'DM Mono',monospace;font-size:clamp(11px,1.1vw,13px);line-height:1.8;z-index:5;opacity:0;backdrop-filter:blur(6px);max-width:520px;width:100%;flex-shrink:0;}
 .dashboard-card.critical{border-color:var(--accent);box-shadow:0 0 30px rgba(232,64,12,.2);}
 .dashboard-header{font-family:'Bebas Neue',sans-serif;letter-spacing:2px;font-size:14px;margin-bottom:8px;}
 .metric-row{display:flex;justify-content:space-between;gap:8px;}
@@ -62,16 +62,16 @@ a:hover ~ #cursor, button:hover ~ #cursor, .cta-btn:hover ~ #cursor{width:18px;h
 .headline-syne{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(22px,3.5vw,48px);color:var(--paper);line-height:1.2;z-index:5;}
 .sub-line{font-family:'DM Mono',monospace;font-size:clamp(13px,1.3vw,16px);color:var(--muted);line-height:1.7;z-index:5;}
 /* Impact text */
-.impact-text{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,80px);letter-spacing:2px;line-height:1.1;position:absolute;z-index:5;opacity:0;}
+.impact-text{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,80px);letter-spacing:2px;line-height:1.1;z-index:5;opacity:0;text-align:center;flex-shrink:0;}
 /* WhatsApp notification */
-.whatsapp-card{background:#1a2e1a;border:1px solid #2d5a2d;border-radius:12px;padding:16px 18px;max-width:290px;font-family:'DM Mono',monospace;font-size:12px;position:absolute;z-index:5;opacity:0;box-shadow:0 8px 32px rgba(0,0,0,.5);}
+.whatsapp-card{background:#1a2e1a;border:1px solid #2d5a2d;border-radius:12px;padding:16px 18px;max-width:340px;width:100%;font-family:'DM Mono',monospace;font-size:12px;z-index:5;opacity:0;box-shadow:0 8px 32px rgba(0,0,0,.5);flex-shrink:0;}
 .whatsapp-header{font-size:13px;font-weight:bold;color:#25d366;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
 .whatsapp-msg{color:#d4d4d4;line-height:1.6;}
 .whatsapp-time{text-align:right;color:#6b8f6b;font-size:10px;margin-top:6px;}
 /* Awareness Pyramid */
-.pyramid-container{position:absolute;z-index:5;}
+.pyramid-container{z-index:5;max-width:520px;width:100%;flex-shrink:0;}
 /* Blueprint styles */
-.blueprint-box{border:1px solid rgba(212,160,23,.4);background:rgba(212,160,23,.03);padding:14px 18px;font-family:'DM Mono',monospace;font-size:clamp(10px,1vw,12px);color:var(--gold);position:absolute;opacity:0;}
+.blueprint-box{border:1px solid rgba(212,160,23,.4);background:rgba(212,160,23,.03);padding:14px 18px;font-family:'DM Mono',monospace;font-size:clamp(10px,1vw,12px);color:var(--gold);opacity:0;flex-shrink:0;}
 .blueprint-box .layer-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1.4vw,18px);letter-spacing:2px;margin-bottom:4px;}
 .blueprint-box .layer-name{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(12px,1.2vw,15px);margin-bottom:4px;}
 .blueprint-box.l1{border-color:rgba(30,58,95,.6);color:var(--blue-dim);}
@@ -80,12 +80,12 @@ a:hover ~ #cursor, button:hover ~ #cursor, .cta-btn:hover ~ #cursor{width:18px;h
 .blueprint-box.l4{border-color:rgba(232,190,30,.7);color:#e8be1e;}
 .blueprint-box.pixel{border-color:var(--accent);color:var(--accent);}
 /* Result cards */
-.result-card{background:var(--panel-bg);border:1px solid var(--border);padding:32px;text-align:center;max-width:380px;position:absolute;z-index:5;opacity:0;}
+.result-card{background:var(--panel-bg);border:1px solid var(--border);padding:32px;text-align:center;max-width:380px;width:100%;z-index:5;opacity:0;flex-shrink:0;}
 .result-number{font-family:'Bebas Neue',sans-serif;font-size:clamp(60px,8vw,100px);color:var(--gold);line-height:1;}
 .result-divider{width:60%;height:2px;background:var(--gold);margin:12px auto;opacity:.4;}
 .result-text{font-family:'DM Mono',monospace;font-size:clamp(12px,1.1vw,14px);color:var(--muted);line-height:1.7;}
 /* Testimonial */
-.testimonial{position:absolute;z-index:5;text-align:center;max-width:600px;opacity:0;}
+.testimonial{z-index:5;text-align:center;max-width:600px;width:100%;opacity:0;flex-shrink:0;}
 .testimonial-quote{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(18px,2.5vw,28px);color:var(--paper);line-height:1.5;position:relative;}
 .testimonial-attr{font-family:'DM Mono',monospace;font-size:13px;color:var(--gold);margin-top:16px;}
 .quote-mark{font-family:'Bebas Neue',sans-serif;font-size:clamp(100px,15vw,200px);color:var(--gold);opacity:.15;position:absolute;top:-60px;left:-30px;line-height:1;pointer-events:none;}
@@ -111,14 +111,14 @@ a:hover ~ #cursor, button:hover ~ #cursor, .cta-btn:hover ~ #cursor{width:18px;h
 .frame-border{position:absolute;z-index:3;pointer-events:none;}
 .frame-border line,.frame-border rect{stroke:var(--accent);fill:none;stroke-width:2;}
 /* Columns layout */
-.two-columns{display:flex;gap:40px;width:100%;max-width:700px;position:absolute;z-index:5;opacity:0;}
+.two-columns{display:flex;gap:40px;width:100%;max-width:700px;z-index:5;opacity:0;flex-shrink:0;}
 .two-columns .col{flex:1;}
 .two-columns .col-header{font-family:'Bebas Neue',sans-serif;font-size:clamp(13px,1.3vw,16px);letter-spacing:2px;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border);}
 .two-columns .col-row{font-size:clamp(11px,1.1vw,13px);line-height:1.8;padding:4px 0;}
 .col-left .col-row{color:var(--muted);}
 .col-right .col-row{color:var(--gold);}
 /* EKG Flatline */
-.ekg-line{position:absolute;z-index:5;opacity:0;}
+.ekg-line{z-index:5;opacity:0;flex-shrink:0;width:100%;}
 /* Scene 6 specifics */
 .scene6-content{display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;max-width:720px;padding:80px 24px 40px;}
 .eyebrow{font-family:'Bebas Neue',sans-serif;font-size:clamp(12px,1.2vw,15px);letter-spacing:6px;color:var(--gold);}
@@ -136,126 +136,77 @@ a:hover ~ #cursor, button:hover ~ #cursor, .cta-btn:hover ~ #cursor{width:18px;h
 @keyframes scrollBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
 /* Accent line decorations on hero */
 .hero-line{width:60px;height:2px;background:var(--accent);margin:0 auto 24px;z-index:2;}
-/* ═══ MOBILE RESPONSIVE ═══ */
+/* ═══ RESPONSIVE ═══ */
 /* Disable custom cursor on touch */
 @media(pointer:coarse){
 html,body,a,.cta-btn,.play-btn,.nav-cta{cursor:auto !important;}
 #cursor,#cursor-ring{display:none !important;}
 }
-/* ── CENTERED VERTICAL FLOW ── */
-/* Desktop: center content, reduce left/right splits */
+/* Desktop tweaks */
 @media(min-width:769px){
-/* Scene content containers: centered column */
-.scene .scene-content{flex-direction:column;align-items:center;justify-content:flex-start;padding:80px 40px 40px;gap:16px;}
-/* Characters go to center-left, not far edge */
-#s00-rajan{left:8% !important;}
-#s01-rajan{left:5% !important;}
-#s02-rajan{left:5% !important;}
-#s03-rajan{left:4% !important;}
-/* Caption boxes: increase width, better positioning */
-.caption-box{max-width:360px;}
-/* Dashboard cards - more centered */
-#s01-dashboard{right:5%;}
-#s02-dashboard{right:4%;}
-/* Scene 3 pyramid - less offset */
-#s03-pyramid{right:5%;}
-/* Columns centered */
-.two-columns{left:50% !important;transform:translateX(-50%) !important;}
-/* Blueprint centered better */
-#s04-blueprint{left:16%;width:60%;}
-/* Scene 5 cards — centered row */
-#s05-card1{top:8%;left:50%;transform:translateX(-50%);}
-#s05-card2{top:38%;left:22%;}
-#s05-card3{top:38%;right:8%;left:auto;}
-#s05-testimonial{bottom:8%;left:50%;transform:translateX(-50%);}
+.scene .scene-content{padding:80px 40px 40px;gap:16px;}
+#scene-00 .scene-content{justify-content:center;}
+.caption-box{max-width:520px;}
+#s03-pyramid svg{width:100%;height:auto;}
+.two-columns{flex-direction:row;}
 }
-/* ── MOBILE: Full center-stacked layout ── */
+/* ── MOBILE ── */
 @media(max-width:768px){
-/* Nav */
 #top-nav{padding:10px 14px;gap:6px;}
 .nav-logo{font-size:14px;letter-spacing:2px;}
 .nav-chapter{display:none;}
 .nav-cta{font-size:10px;padding:5px 10px;}
-/* Hero */
 #hero{padding:20px 16px;}
 .hero-headline{font-size:clamp(22px,6vw,36px);max-width:100%;}
 .hero-sub{font-size:clamp(11px,3vw,14px);max-width:100%;}
 .hero-eyebrow{font-size:clamp(9px,2.5vw,12px);letter-spacing:3px;margin-bottom:16px;}
 .hero-line{width:40px;}
-/* All scenes: vertical center flow */
 .scene{min-height:100vh;min-height:100dvh;}
-.scene .scene-content{flex-direction:column !important;align-items:center !important;justify-content:flex-start !important;padding:60px 16px 20px !important;gap:12px !important;}
-/* Hide characters on mobile — they overlap text */
-.scene-character{display:none !important;}
-/* All caption boxes: static centered blocks, not absolute */
-.caption-box{position:relative !important;max-width:92vw !important;width:100% !important;left:auto !important;right:auto !important;top:auto !important;bottom:auto !important;transform:none !important;font-size:clamp(11px,3vw,13px) !important;padding:12px 14px !important;margin-bottom:8px !important;}
-/* Scene 0: centered cover */
-#scene-00 .scene-content{justify-content:center !important;}
+.scene .scene-content{padding:60px 16px 20px;gap:12px;}
+#scene-00 .scene-content{justify-content:center;}
 .frame-border{inset:12px !important;width:calc(100% - 24px) !important;height:calc(100% - 24px) !important;}
-#s00-headline{position:relative !important;left:auto !important;right:auto !important;top:auto !important;max-width:100% !important;text-align:center !important;font-size:clamp(32px,9vw,60px) !important;}
-#s00-sub1,#s00-sub2,#s00-sub3{position:relative !important;left:auto !important;right:auto !important;top:auto !important;max-width:100% !important;text-align:center !important;font-size:clamp(12px,3vw,15px) !important;}
-#s00-chapter{position:relative !important;left:auto !important;bottom:auto !important;margin-top:16px !important;font-size:11px !important;text-align:center !important;}
-/* Scene 1 */
-#s01-dashboard{position:relative !important;top:auto !important;right:auto !important;left:auto !important;max-width:100% !important;width:100% !important;margin-bottom:10px !important;}
-#s01-crack{display:none !important;}
-#s01-narrative{position:relative !important;right:auto !important;bottom:auto !important;text-align:center !important;max-width:100% !important;}
-#s01-narrative .headline-syne{font-size:clamp(18px,4.5vw,24px) !important;}
-/* Scene 2 */
-#s02-dashboard{position:relative !important;top:auto !important;right:auto !important;left:auto !important;max-width:100% !important;width:100% !important;margin-bottom:10px !important;}
-.whatsapp-card{position:relative !important;bottom:auto !important;right:auto !important;max-width:100% !important;width:100% !important;margin:8px 0 !important;}
-.impact-text{position:relative !important;left:auto !important;top:auto !important;transform:none !important;width:100% !important;text-align:center !important;font-size:clamp(24px,7vw,44px) !important;margin:8px 0 !important;}
-.ekg-line{position:relative !important;left:auto !important;bottom:auto !important;width:100% !important;margin-top:8px !important;}
-#s02-chapter{position:relative !important;bottom:auto !important;left:auto !important;margin-top:12px !important;font-size:10px !important;}
-/* Scene 3 */
-#s03-pyramid{position:relative !important;right:auto !important;left:auto !important;top:auto !important;transform:none !important;width:100% !important;margin:8px 0 !important;}
+#s00-headline{font-size:clamp(32px,9vw,60px) !important;}
+.caption-box{max-width:100%;font-size:clamp(11px,3vw,13px);padding:12px 14px;}
+.dashboard-card{max-width:100%;font-size:clamp(10px,2.5vw,12px);padding:12px 14px;}
+.dashboard-header{font-size:clamp(11px,3vw,13px);}
+.metric-row{gap:4px;font-size:clamp(9px,2.3vw,11px);}
+.impact-text{font-size:clamp(24px,7vw,44px);}
 #s03-pyramid svg{width:100%;max-width:100%;height:auto;}
-#s03-panel-label{position:relative !important;bottom:auto !important;left:auto !important;transform:none !important;width:100% !important;text-align:center !important;font-size:clamp(16px,4.5vw,26px) !important;margin:8px 0 !important;}
-.two-columns{position:relative !important;bottom:auto !important;left:auto !important;transform:none !important;flex-direction:column !important;gap:12px !important;max-width:100% !important;width:100% !important;}
-.two-columns .col-header{font-size:clamp(10px,2.8vw,13px) !important;}
-.two-columns .col-row{font-size:clamp(10px,2.5vw,12px) !important;}
-#s03-chapter{position:relative !important;bottom:auto !important;left:auto !important;margin-top:12px !important;font-size:10px !important;}
-/* Scene 4: blueprint stacked */
-#s04-title{position:relative !important;top:auto !important;left:auto !important;right:auto !important;transform:none !important;text-align:center !important;font-size:clamp(11px,3vw,15px) !important;margin-bottom:8px !important;}
-#s04-blueprint{position:relative !important;left:auto !important;right:auto !important;top:auto !important;width:100% !important;transform:none !important;}
-.blueprint-box{position:relative !important;margin-bottom:8px !important;max-width:100% !important;padding:10px 12px !important;font-size:clamp(9px,2.5vw,11px) !important;}
-.blueprint-box .layer-num{font-size:clamp(11px,3vw,14px) !important;}
-.blueprint-box .layer-name{font-size:clamp(10px,2.8vw,13px) !important;}
-/* Scene 4 captions: inline after each layer (hide on mobile — info is in boxes) */
-#s04-cap1,#s04-cap2,#s04-cap3,#s04-cap4,#s04-cap5{display:none !important;}
-#s04-chapter{position:relative !important;bottom:auto !important;left:auto !important;margin-top:12px !important;font-size:10px !important;}
-/* Scene 5: result cards stacked */
-.result-card{position:relative !important;max-width:100% !important;width:100% !important;margin:8px 0 !important;padding:20px !important;top:auto !important;left:auto !important;right:auto !important;transform:none !important;}
-.result-number{font-size:clamp(40px,10vw,60px) !important;}
-.result-text{font-size:clamp(10px,2.8vw,12px) !important;}
-.testimonial{position:relative !important;max-width:100% !important;width:100% !important;margin:12px 0 0 !important;transform:none !important;left:auto !important;bottom:auto !important;}
-.testimonial-quote{font-size:clamp(14px,4vw,20px) !important;}
-.quote-mark{font-size:clamp(60px,15vw,100px) !important;top:-30px !important;left:-10px !important;}
-/* Scene 6 */
-.scene6-content{padding:60px 16px 24px !important;gap:14px !important;max-width:100% !important;}
-.eyebrow{font-size:clamp(10px,2.5vw,13px) !important;letter-spacing:3px !important;}
-.headline-syne{font-size:clamp(22px,6vw,36px) !important;}
-.video-placeholder{max-width:100% !important;}
-.play-btn{width:50px !important;height:50px !important;}
-.cta-btn{padding:14px 24px !important;font-size:clamp(13px,3.5vw,16px) !important;width:100% !important;text-align:center;}
-.trust-row{gap:12px !important;}
-.trust-item{font-size:10px !important;}
-.sub-line{font-size:clamp(11px,3vw,13px) !important;}
-/* Dashboard */
-.dashboard-card{max-width:100% !important;width:100% !important;font-size:clamp(10px,2.5vw,12px) !important;padding:12px 14px !important;}
-.dashboard-header{font-size:clamp(11px,3vw,13px) !important;}
-.metric-row{gap:4px !important;font-size:clamp(9px,2.3vw,11px) !important;}
-/* Chapter overlay on mobile */
-#chapter-overlay .ch-num{font-size:clamp(12px,3.5vw,16px) !important;}
-#chapter-overlay .ch-title{font-size:clamp(9px,2.5vw,12px) !important;}
-/* Chapter labels */
-.chapter-label{position:relative !important;bottom:auto !important;left:auto !important;margin-top:12px !important;text-align:center !important;}
+#s03-panel-label{font-size:clamp(16px,4.5vw,26px);}
+.two-columns{flex-direction:column;gap:12px;}
+.two-columns .col-header{font-size:clamp(10px,2.8vw,13px);}
+.two-columns .col-row{font-size:clamp(10px,2.5vw,12px);}
+#s04-title{font-size:clamp(11px,3vw,15px);}
+.blueprint-box{padding:10px 12px;font-size:clamp(9px,2.5vw,11px);}
+.blueprint-box .layer-num{font-size:clamp(11px,3vw,14px);}
+.blueprint-box .layer-name{font-size:clamp(10px,2.8vw,13px);}
+#s04-cap1,#s04-cap2,#s04-cap3,#s04-cap4,#s04-cap5{display:none;}
+.result-card{max-width:100%;padding:20px;}
+.result-number{font-size:clamp(40px,10vw,60px);}
+.result-text{font-size:clamp(10px,2.8vw,12px);}
+.testimonial{max-width:100%;}
+.testimonial-quote{font-size:clamp(14px,4vw,20px);}
+.quote-mark{font-size:clamp(60px,15vw,100px);top:-30px;left:-10px;}
+.scene6-content{padding:60px 16px 24px;gap:14px;max-width:100%;}
+.eyebrow{font-size:clamp(10px,2.5vw,13px);letter-spacing:3px;}
+.headline-syne{font-size:clamp(22px,6vw,36px);}
+.video-placeholder{max-width:100%;}
+.play-btn{width:50px;height:50px;}
+.cta-btn{padding:14px 24px;font-size:clamp(13px,3.5vw,16px);width:100%;text-align:center;}
+.trust-row{gap:12px;}
+.trust-item{font-size:10px;}
+.sub-line{font-size:clamp(11px,3vw,13px);}
+#chapter-overlay .ch-num{font-size:clamp(12px,3.5vw,16px);}
+#chapter-overlay .ch-title{font-size:clamp(9px,2.5vw,12px);}
+.chapter-label{text-align:center;}
+#s01-crack{display:none;}
 }
 /* Very small phones */
 @media(max-width:380px){
 .hero-headline{font-size:clamp(20px,5.5vw,28px);}
-#s00-headline{font-size:clamp(28px,8vw,44px) !important;}
-.impact-text{font-size:clamp(20px,6vw,36px) !important;}
-.caption-box{font-size:10px !important;padding:8px 10px !important;}
+#s00-headline{font-size:clamp(28px,8vw,44px);}
+.impact-text{font-size:clamp(20px,6vw,36px);}
+.caption-box{font-size:10px;padding:8px 10px;}
 }
 </style>
 </head>
@@ -313,7 +264,7 @@ The story below will show you exactly what's breaking your funnel — and the 4-
 </svg>
 
 <!-- Rajan STATE 1 — Stressed (sitting at desk) — 3D enhanced -->
-<div class="scene-character" id="s00-rajan" style="position:absolute;left:12%;bottom:15%;opacity:0;">
+<div class="scene-character" id="s00-rajan" style="opacity:0;">
 <svg id="rajan-stressed" width="280" height="320" viewBox="0 0 280 320" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <!-- 3D skin gradient -->
@@ -430,15 +381,15 @@ The story below will show you exactly what's breaking your funnel — and the 4-
 </div>
 
 <!-- Scene 0 Content -->
-<div class="scene-content" style="flex-direction:column;padding:0 60px;">
+<div class="scene-content">
 <!-- Typewriter headline -->
-<div id="s00-headline" class="headline-massive" style="position:absolute;right:8%;top:25%;max-width:55%;text-align:right;opacity:0;"></div>
+<div id="s00-headline" class="headline-massive" style="text-align:center;opacity:0;max-width:90%;"></div>
 <!-- Sub-lines -->
-<div id="s00-sub1" class="sub-line" style="position:absolute;right:8%;top:52%;max-width:45%;text-align:right;opacity:0;">He built a high-ticket coaching business.</div>
-<div id="s00-sub2" class="sub-line" style="position:absolute;right:8%;top:58%;max-width:45%;text-align:right;opacity:0;">He did everything right with his Meta ads.</div>
-<div id="s00-sub3" class="sub-line" style="position:absolute;right:8%;top:64%;max-width:45%;text-align:right;opacity:0;">And it broke anyway.</div>
+<div id="s00-sub1" class="sub-line" style="text-align:center;opacity:0;">He built a high-ticket coaching business.</div>
+<div id="s00-sub2" class="sub-line" style="text-align:center;opacity:0;">He did everything right with his Meta ads.</div>
+<div id="s00-sub3" class="sub-line" style="text-align:center;opacity:0;">And it broke anyway.</div>
 <!-- Chapter label -->
-<div id="s00-chapter" class="chapter-label accent" style="bottom:8%;left:5%;background:var(--accent);color:#fff;padding:10px 20px;">CHAPTER 01 — THE COLLAPSE</div>
+<div id="s00-chapter" class="chapter-label accent" style="background:var(--accent);color:#fff;padding:10px 20px;">CHAPTER 01 — THE COLLAPSE</div>
 </div>
 </div>
 
@@ -450,7 +401,7 @@ The story below will show you exactly what's breaking your funnel — and the 4-
 <div class="noise-overlay"></div>
 
 <!-- Rajan at desk (relaxed version) — 3D enhanced -->
-<div class="scene-character" id="s01-rajan" style="position:absolute;left:8%;bottom:12%;">
+<div class="scene-character" id="s01-rajan">
 <svg width="280" height="320" viewBox="0 0 280 320" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <linearGradient id="skinGrad1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#deb587"/><stop offset="50%" stop-color="#d4a574"/><stop offset="100%" stop-color="#b8885a"/></linearGradient>
@@ -524,8 +475,14 @@ The story below will show you exactly what's breaking your funnel — and the 4-
 </svg>
 </div>
 
-<!-- Dashboard - Good -->
-<div class="dashboard-card" id="s01-dashboard" style="top:12%;right:8%;">
+<!-- Scene 1 content - centered vertical flow -->
+<div class="scene-content">
+
+<div class="caption-box" id="s01-caption1">
+Monday morning. Everything is working.<br>The leads are coming in. The sales team is happy.<br>Rajan thinks he's finally cracked it.
+</div>
+
+<div class="dashboard-card" id="s01-dashboard" style="position:relative;">
 <div class="dashboard-header" style="color:#4ade80;">CAMPAIGN STATUS: ACTIVE</div>
 <div style="border-top:1px solid var(--border);margin-bottom:8px;"></div>
 <div class="metric-row"><span class="metric-label">Cost Per Lead</span><span class="metric-value metric-good" id="s01-cpl">₹298</span><span class="metric-good">↓ GOOD</span></div>
@@ -534,28 +491,22 @@ The story below will show you exactly what's breaking your funnel — and the 4-
 <div class="metric-row"><span class="metric-label">Qualified Leads</span><span class="metric-value metric-good" id="s01-leads">24</span><span class="metric-good">↑ THIS WEEK</span></div>
 <div style="border-top:1px solid var(--border);margin:8px 0;"></div>
 <div class="status-bar" style="color:#4ade80;">STATUS: [██████████] SCALING</div>
-</div>
-
 <!-- Crack overlay on dashboard -->
-<svg id="s01-crack" style="position:absolute;top:12%;right:8%;width:340px;height:260px;z-index:6;opacity:0;pointer-events:none;" viewBox="0 0 340 260">
+<svg id="s01-crack" style="position:absolute;inset:0;width:100%;height:100%;z-index:6;opacity:0;pointer-events:none;" viewBox="0 0 340 260" preserveAspectRatio="none">
 <line x1="0" y1="0" x2="340" y2="260" stroke="var(--accent)" stroke-width="3" stroke-dasharray="500" stroke-dashoffset="500"/>
 </svg>
-
-<!-- Captions -->
-<div class="caption-box" id="s01-caption1" style="top:14%;left:5%;">
-Monday morning. Everything is working.<br>The leads are coming in. The sales team is happy.<br>Rajan thinks he's finally cracked it.
 </div>
 
-<!-- Narrative text -->
-<div id="s01-narrative" style="position:absolute;right:8%;bottom:35%;text-align:right;max-width:350px;z-index:5;opacity:0;">
+<div id="s01-narrative" style="text-align:center;max-width:520px;z-index:5;opacity:0;">
 <div class="headline-syne" style="font-size:clamp(20px,2.5vw,32px);margin-bottom:8px;">₹298 a lead.</div>
 <div class="headline-syne" style="font-size:clamp(20px,2.5vw,32px);margin-bottom:8px;">4.8x return.</div>
 <div class="sub-line">This is the moment every high-ticket business dreams about.</div>
 </div>
 
-<!-- Caption 2 -->
-<div class="caption-box" id="s01-caption2" style="bottom:10%;left:5%;">
+<div class="caption-box" id="s01-caption2">
 He decides to scale.<br>Because the numbers make sense.<br>Because the margin is there.<br>Because why wouldn't you?
+</div>
+
 </div>
 </div>
 
@@ -567,7 +518,7 @@ He decides to scale.<br>Because the numbers make sense.<br>Because the margin is
 <div class="noise-overlay"></div>
 
 <!-- Rajan stressed at desk with red glow — 3D enhanced -->
-<div class="scene-character" id="s02-rajan" style="position:absolute;left:8%;bottom:12%;">
+<div class="scene-character" id="s02-rajan">
 <svg width="280" height="320" viewBox="0 0 280 320" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <linearGradient id="skinGrad2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#deb587"/><stop offset="50%" stop-color="#d4a574"/><stop offset="100%" stop-color="#b8885a"/></linearGradient>
@@ -660,8 +611,14 @@ He decides to scale.<br>Because the numbers make sense.<br>Because the margin is
 </svg>
 </div>
 
-<!-- Dashboard - BROKEN -->
-<div class="dashboard-card critical" id="s02-dashboard" style="top:10%;right:6%;opacity:0;">
+<!-- Scene 2 content - centered vertical flow -->
+<div class="scene-content">
+
+<div class="caption-box accent" id="s02-caption1">
+Thursday.<br>Nothing changed. Same creative. Same audience. Same budget.<br>And yet.
+</div>
+
+<div class="dashboard-card critical" id="s02-dashboard" style="opacity:0;">
 <div class="dashboard-header" style="color:var(--accent);">⚠ CAMPAIGN STATUS: CRITICAL</div>
 <div style="border-top:1px solid var(--accent);margin-bottom:8px;opacity:.4;"></div>
 <div class="metric-row"><span class="metric-label">Cost Per Lead</span><span class="metric-value metric-bad" id="s02-cpl">₹298</span><span class="metric-bad">↑↑ +106%</span></div>
@@ -672,42 +629,33 @@ He decides to scale.<br>Because the numbers make sense.<br>Because the margin is
 <div class="status-bar" style="color:var(--accent);">STATUS: [██░░░░░░░░] BREAKING DOWN</div>
 </div>
 
-<!-- Caption 1 -->
-<div class="caption-box accent" id="s02-caption1" style="top:12%;left:5%;">
-Thursday.<br>Nothing changed. Same creative. Same audience. Same budget.<br>And yet.
-</div>
-
-<!-- Caption 2 -->
-<div class="caption-box dark" id="s02-caption2" style="top:45%;right:5%;">
+<div class="caption-box dark" id="s02-caption2">
 CPL: doubled overnight.<br>Show rate: collapsed.<br>Sales team: asking questions he can't answer.
 </div>
 
-<!-- Caption 3 -->
-<div class="caption-box accent" id="s02-caption3" style="bottom:22%;left:50%;transform:translateX(-50%);">
+<div class="caption-box accent" id="s02-caption3">
 He duplicates the ad set.<br>Launches a new creative.<br>His agency says: 'Give it time.'
 </div>
 
-<!-- WhatsApp notification -->
-<div class="whatsapp-card" id="s02-whatsapp" style="bottom:15%;right:6%;">
+<div class="whatsapp-card" id="s02-whatsapp">
 <div class="whatsapp-header">📱 Sales Team</div>
 <div style="border-top:1px solid #2d5a2d;margin-bottom:8px;"></div>
 <div class="whatsapp-msg">Bhai leads kahan hain?<br>Pipeline bilkul empty<br>ho gayi...</div>
 <div class="whatsapp-time">2:47 PM ✓✓</div>
 </div>
 
-<!-- Impact text -->
-<div class="impact-text" id="s02-impact1" style="top:38%;left:50%;transform:translateX(-50%);color:var(--accent);text-align:center;">YOUR FUNNEL DIDN'T BREAK.</div>
-<div class="impact-text" id="s02-impact2" style="top:52%;left:50%;transform:translateX(-50%);color:var(--paper);text-align:center;">YOU RAN OUT OF READY BUYERS.</div>
+<div class="impact-text" id="s02-impact1" style="color:var(--accent);">YOUR FUNNEL DIDN'T BREAK.</div>
+<div class="impact-text" id="s02-impact2" style="color:var(--paper);">YOU RAN OUT OF READY BUYERS.</div>
 
-<!-- EKG Flatlines -->
-<svg class="ekg-line" id="s02-ekg" style="bottom:8%;left:10%;width:80%;height:60px;" viewBox="0 0 800 60">
+<svg class="ekg-line" id="s02-ekg" style="max-width:600px;height:60px;" viewBox="0 0 800 60">
 <line x1="0" y1="20" x2="800" y2="20" stroke="var(--accent)" stroke-width="1.5" opacity=".6" stroke-dasharray="800" stroke-dashoffset="800"/>
 <line x1="0" y1="35" x2="800" y2="35" stroke="var(--accent)" stroke-width="1.5" opacity=".4" stroke-dasharray="800" stroke-dashoffset="800"/>
 <line x1="0" y1="50" x2="800" y2="50" stroke="var(--accent)" stroke-width="1.5" opacity=".3" stroke-dasharray="800" stroke-dashoffset="800"/>
 </svg>
 
-<!-- Chapter label -->
-<div id="s02-chapter" class="chapter-label" style="bottom:4%;left:5%;background:var(--paper);color:var(--charcoal);padding:10px 20px;opacity:0;">CHAPTER 02 — THE REAL REASON</div>
+<div id="s02-chapter" class="chapter-label" style="background:var(--paper);color:var(--charcoal);padding:10px 20px;opacity:0;">CHAPTER 02 — THE REAL REASON</div>
+
+</div>
 </div>
 
 <!-- ══════════════════════════════════════════════ -->
@@ -717,7 +665,7 @@ He duplicates the ad set.<br>Launches a new creative.<br>His agency says: 'Give 
 <div class="noise-overlay"></div>
 
 <!-- Rajan STATE 2 — Realisation — 3D enhanced -->
-<div class="scene-character" id="s03-rajan" style="position:absolute;left:6%;top:50%;transform:translateY(-50%);">
+<div class="scene-character" id="s03-rajan">
 <svg id="rajan-realisation" width="240" height="300" viewBox="0 0 240 300" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <linearGradient id="skinGrad3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#deb587"/><stop offset="50%" stop-color="#d4a574"/><stop offset="100%" stop-color="#b8885a"/></linearGradient>
@@ -790,8 +738,10 @@ He duplicates the ad set.<br>Launches a new creative.<br>His agency says: 'Give 
 </svg>
 </div>
 
-<!-- Awareness Pyramid (right half) -->
-<div class="pyramid-container" id="s03-pyramid" style="right:8%;top:50%;transform:translateY(-50%);opacity:0;">
+<!-- Awareness Pyramid -->
+<div class="scene-content">
+
+<div class="pyramid-container" id="s03-pyramid" style="opacity:0;">
 <svg width="420" height="340" viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg">
 <!-- Pyramid levels bottom to top -->
 <path id="pyr-level5" d="M30,300 L390,300 L350,240 L70,240 Z" fill="rgba(30,58,95,.15)" stroke="#1e3a5f" stroke-width="2" stroke-dasharray="1200" stroke-dashoffset="1200"/>
@@ -811,19 +761,16 @@ He duplicates the ad set.<br>Launches a new creative.<br>His agency says: 'Give 
 </svg>
 </div>
 
-<!-- Captions -->
-<div class="caption-box" id="s03-caption1" style="top:8%;left:5%;">Meta's algorithm is brilliant. But it can't read minds.</div>
-<div class="caption-box" id="s03-caption2" style="top:22%;left:5%;">When you optimise for 'Lead' — it finds people who LOOK like leads.</div>
-<div class="caption-box" id="s03-caption3" style="top:36%;left:5%;">Not people who ARE leads.</div>
-<div class="caption-box" id="s03-caption4" style="top:50%;left:5%;">The top 2% of your market was always finite.</div>
-<div class="caption-box" id="s03-caption5" style="top:64%;left:5%;">You burned through them. Now you're paying to reach the other 98%.</div>
-<div class="caption-box" id="s03-caption6" style="top:78%;left:5%;">And nobody told you this was happening.</div>
+<div class="caption-box" id="s03-caption1">Meta's algorithm is brilliant. But it can't read minds.</div>
+<div class="caption-box" id="s03-caption2">When you optimise for 'Lead' — it finds people who LOOK like leads.</div>
+<div class="caption-box" id="s03-caption3">Not people who ARE leads.</div>
+<div class="caption-box" id="s03-caption4">The top 2% of your market was always finite.</div>
+<div class="caption-box" id="s03-caption5">You burned through them. Now you're paying to reach the other 98%.</div>
+<div class="caption-box" id="s03-caption6">And nobody told you this was happening.</div>
 
-<!-- Panel label -->
-<div class="impact-text" id="s03-panel-label" style="bottom:32%;left:50%;transform:translateX(-50%);color:var(--gold);font-size:clamp(20px,3.5vw,44px);text-align:center;">THE REAL PROBLEM ISN'T CREATIVE. IT'S DATA.</div>
+<div class="impact-text" id="s03-panel-label" style="color:var(--gold);font-size:clamp(20px,3.5vw,44px);">THE REAL PROBLEM ISN'T CREATIVE. IT'S DATA.</div>
 
-<!-- Two columns -->
-<div class="two-columns" id="s03-columns" style="bottom:8%;left:50%;transform:translateX(-50%);">
+<div class="two-columns" id="s03-columns">
 <div class="col col-left">
 <div class="col-header" style="color:var(--muted);">WHAT META KNOWS</div>
 <div class="col-row">"This person clicked"</div>
@@ -840,8 +787,9 @@ He duplicates the ad set.<br>Launches a new creative.<br>His agency says: 'Give 
 </div>
 </div>
 
-<!-- Chapter label -->
-<div id="s03-chapter" class="chapter-label" style="bottom:3%;left:5%;background:var(--gold);color:var(--ink);padding:10px 20px;opacity:0;">CHAPTER 03 — THE ARCHITECTURE</div>
+<div id="s03-chapter" class="chapter-label" style="background:var(--gold);color:var(--ink);padding:10px 20px;opacity:0;">CHAPTER 03 — THE ARCHITECTURE</div>
+
+</div>
 </div>
 
 <!-- ══════════════════════════════════════════════ -->
@@ -853,7 +801,7 @@ He duplicates the ad set.<br>Launches a new creative.<br>His agency says: 'Give 
 <div style="position:absolute;right:0;top:0;width:40%;height:100%;background:radial-gradient(ellipse at right center,rgba(212,160,23,.06),transparent 70%);z-index:0;"></div>
 
 <!-- Rajan STATE 3 — Confident (standing) — 3D enhanced -->
-<div class="scene-character" id="s04-rajan" style="position:absolute;left:4%;top:50%;transform:translateY(-50%);opacity:0;">
+<div class="scene-character" id="s04-rajan" style="opacity:0;">
 <svg id="rajan-confident" width="200" height="340" viewBox="0 0 200 340" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <linearGradient id="skinGrad4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#deb587"/><stop offset="50%" stop-color="#d4a574"/><stop offset="100%" stop-color="#b8885a"/></linearGradient>
@@ -947,11 +895,12 @@ He duplicates the ad set.<br>Launches a new creative.<br>His agency says: 'Give 
 </svg>
 </div>
 
-<!-- Blueprint title -->
-<div id="s04-title" style="position:absolute;top:4%;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1.6vw,20px);letter-spacing:4px;color:var(--gold);opacity:0;z-index:5;">BULLETPROOF ADS SYSTEM — ARCHITECTURE v1.0</div>
+<!-- Scene 4 content - centered vertical flow -->
+<div class="scene-content">
 
-<!-- 4-Layer Blueprint SVG -->
-<div id="s04-blueprint" style="position:absolute;left:20%;top:50%;transform:translateY(-50%);width:55%;z-index:5;">
+<div id="s04-title" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,1.6vw,20px);letter-spacing:4px;color:var(--gold);opacity:0;z-index:5;text-align:center;">BULLETPROOF ADS SYSTEM — ARCHITECTURE v1.0</div>
+
+<div id="s04-blueprint" style="width:100%;max-width:600px;z-index:5;">
 
 <!-- Layer 01 -->
 <div class="blueprint-box l1" id="bp-layer1" style="position:relative;margin-bottom:12px;display:flex;gap:20px;align-items:center;">
@@ -1019,25 +968,25 @@ He duplicates the ad set.<br>Launches a new creative.<br>His agency says: 'Give 
 </div>
 </div>
 
-<!-- Layer captions (right side) -->
-<div class="caption-box" id="s04-cap1" style="top:12%;right:4%;max-width:260px;">
+<div class="caption-box" id="s04-cap1">
 Stop paying for curiosity.<br>Layer 01 filters for genuine interest.<br>Only intent-signalling prospects move forward.
 </div>
-<div class="caption-box" id="s04-cap2" style="top:28%;right:4%;max-width:260px;">
+<div class="caption-box" id="s04-cap2">
 The objections killing your conversions are invisible.<br>Layer 02 dismantles them. Systematically.<br>20-30 belief-shift videos. 5 psychological angles.<br>By the time they see your offer — they're already half-sold.
 </div>
-<div class="caption-box" id="s04-cap3" style="top:48%;right:4%;max-width:260px;">
+<div class="caption-box" id="s04-cap3">
 Now you ask for the conversion.<br>To an audience that is warm, educated, and ready.<br>Not to strangers. Never to strangers again.
 </div>
-<div class="caption-box" id="s04-cap4" style="top:65%;right:4%;max-width:260px;">
+<div class="caption-box" id="s04-cap4">
 Most funnels bleed revenue right here.<br>The gap between 'booked' and 'showed up.'<br>Layer 04 floods every channel with reasons to attend.<br>Show rates: 34% → 71%+.
 </div>
-<div class="caption-box gold" id="s04-cap5" style="bottom:8%;right:4%;max-width:260px;">
+<div class="caption-box gold" id="s04-cap5">
 This is the unlock nobody talks about.<br>You're not just tracking who converts.<br>You're teaching Meta who to AVOID.<br>The algorithm gets smarter every single week.
 </div>
 
-<!-- Chapter label -->
-<div id="s04-chapter" class="chapter-label" style="bottom:3%;left:5%;background:var(--gold);color:var(--ink);padding:10px 20px;opacity:0;">CHAPTER 04 — THE PROOF</div>
+<div id="s04-chapter" class="chapter-label" style="background:var(--gold);color:var(--ink);padding:10px 20px;opacity:0;">CHAPTER 04 — THE PROOF</div>
+
+</div>
 </div>
 
 <!-- ══════════════════════════════════════════════ -->
@@ -1049,7 +998,7 @@ This is the unlock nobody talks about.<br>You're not just tracking who converts.
 <div style="position:absolute;top:0;right:0;width:60%;height:100%;background:radial-gradient(ellipse at top right,rgba(212,160,23,.04),transparent 60%);z-index:0;"></div>
 
 <!-- Rajan small, observing — 3D enhanced -->
-<div class="scene-character" id="s05-rajan" style="position:absolute;left:3%;bottom:10%;opacity:.6;transform:scale(.6);transform-origin:bottom left;">
+<div class="scene-character" id="s05-rajan" style="opacity:.6;transform:scale(.6);">
 <svg width="200" height="340" viewBox="0 0 200 340" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <linearGradient id="skinGrad5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#deb587"/><stop offset="100%" stop-color="#b8885a"/></linearGradient>
@@ -1087,34 +1036,35 @@ This is the unlock nobody talks about.<br>You're not just tracking who converts.
 </svg>
 </div>
 
-<!-- Result Card 1 -->
-<div class="result-card" id="s05-card1" style="top:10%;left:50%;transform:translateX(-50%);">
+<!-- Scene 5 content - centered vertical flow -->
+<div class="scene-content">
+
+<div class="result-card" id="s05-card1">
 <div class="result-number" id="s05-num1">0x</div>
 <div class="result-divider"></div>
 <div class="result-text">ROAS sustained over 90 days<br>without changing a single<br>creative. Structure did the work.</div>
 </div>
 
-<!-- Result Card 2 -->
-<div class="result-card" id="s05-card2" style="top:10%;left:18%;">
+<div class="result-card" id="s05-card2">
 <div class="result-number" id="s05-num2">0%</div>
 <div class="result-divider"></div>
 <div class="result-text">Show-up rate. Up from 34%.<br>In under 6 weeks.<br>Layer 04 alone paid for itself.</div>
 </div>
 
-<!-- Result Card 3 -->
-<div class="result-card" id="s05-card3" style="top:10%;right:10%;">
+<div class="result-card" id="s05-card3">
 <div class="result-number" id="s05-num3">₹0</div>
 <div class="result-divider"></div>
 <div class="result-text">Cost per qualified sales call.<br>High-ticket coaching niche.<br>Not leads. Qualified calls.</div>
 </div>
 
-<!-- Testimonial -->
-<div class="testimonial" id="s05-testimonial" style="bottom:10%;left:50%;transform:translateX(-50%);">
+<div class="testimonial" id="s05-testimonial">
 <div class="quote-mark">"</div>
 <div class="testimonial-quote">
 "We'd tried three agencies before.<br>This was the first time scaling didn't break everything."
 </div>
 <div class="testimonial-attr">— Client, High-Ticket Coaching Programme</div>
+</div>
+
 </div>
 </div>
 
@@ -1127,7 +1077,7 @@ This is the unlock nobody talks about.<br>You're not just tracking who converts.
 <div style="position:absolute;right:0;top:0;width:50%;height:100%;background:radial-gradient(ellipse at right center,rgba(212,160,23,.05),transparent 70%);z-index:0;"></div>
 
 <!-- Rajan small bottom left — 3D enhanced -->
-<div class="scene-character" style="position:absolute;left:3%;bottom:5%;opacity:.4;transform:scale(.45);transform-origin:bottom left;">
+<div class="scene-character" style="opacity:.4;transform:scale(.45);">
 <svg width="200" height="340" viewBox="0 0 200 340" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <linearGradient id="skinGrad6" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#deb587"/><stop offset="100%" stop-color="#b8885a"/></linearGradient>
@@ -1367,8 +1317,8 @@ const s01 = gsap.timeline({
   }
 });
 
-s01.to('#s01-dashboard', { opacity: 1, x: 0, duration: 1 }, 0)
-   .from('#s01-dashboard', { x: 80, duration: 1 }, 0)
+s01.to('#s01-dashboard', { opacity: 1, duration: 1 }, 0)
+   .from('#s01-dashboard', { y: 30, duration: 1 }, 0)
    .to('#s01-caption1', { opacity: 1, duration: 0.8 }, 0.3)
    .to('#s01-narrative', { opacity: 1, duration: 0.8 }, 1)
 // Mouth smile tween
@@ -1419,8 +1369,8 @@ s02.to('#s02-dashboard', { opacity: 1, duration: 0.8 }, 0)
    .to('#s02-caption2', { opacity: 1, duration: 0.7 }, 2)
    .to('#s02-caption3', { opacity: 1, duration: 0.7 }, 3)
 // WhatsApp slides in
-   .to('#s02-whatsapp', { opacity: 1, x: 0, duration: 0.6 }, 3.5)
-   .from('#s02-whatsapp', { x: 80, duration: 0.6 }, 3.5)
+   .to('#s02-whatsapp', { opacity: 1, duration: 0.6 }, 3.5)
+   .from('#s02-whatsapp', { y: 30, duration: 0.6 }, 3.5)
 // Impact text slams
    .to('#s02-impact1', { opacity: 1, duration: 0.01 }, 4.5)
    .from('#s02-impact1', { scale: 1.3, duration: 0.4, ease: 'back.out(2)' }, 4.5)
@@ -1507,27 +1457,27 @@ s04.to('#s04-rajan', { opacity: 1, duration: 0.8 }, 0)
    .to('#s04-title', { opacity: 1, duration: 0.6 }, 0.3)
 // Layer 01 draws in
    .to('#bp-layer1', { opacity: 1, duration: 0.8 }, 1)
-   .from('#bp-layer1', { x: -40, duration: 0.8, ease: 'power2.out' }, 1)
+   .from('#bp-layer1', { y: 20, duration: 0.8, ease: 'power2.out' }, 1)
    .to('#s04-cap1', { opacity: 1, duration: 0.6 }, 1.5)
    .to('#bp-arrow1', { opacity: 1, duration: 0.4 }, 2)
 // Layer 02
    .to('#bp-layer2', { opacity: 1, duration: 0.8 }, 2.5)
-   .from('#bp-layer2', { x: -40, duration: 0.8, ease: 'power2.out' }, 2.5)
+   .from('#bp-layer2', { y: 20, duration: 0.8, ease: 'power2.out' }, 2.5)
    .to('#s04-cap2', { opacity: 1, duration: 0.6 }, 3)
    .to('#bp-arrow2', { opacity: 1, duration: 0.4 }, 3.5)
 // Layer 03
    .to('#bp-layer3', { opacity: 1, duration: 0.8 }, 4)
-   .from('#bp-layer3', { x: -40, duration: 0.8, ease: 'power2.out' }, 4)
+   .from('#bp-layer3', { y: 20, duration: 0.8, ease: 'power2.out' }, 4)
    .to('#s04-cap3', { opacity: 1, duration: 0.6 }, 4.5)
    .to('#bp-arrow3', { opacity: 1, duration: 0.4 }, 5)
 // Layer 04
    .to('#bp-layer4', { opacity: 1, duration: 0.8 }, 5.5)
-   .from('#bp-layer4', { x: -40, duration: 0.8, ease: 'power2.out' }, 5.5)
+   .from('#bp-layer4', { y: 20, duration: 0.8, ease: 'power2.out' }, 5.5)
    .to('#s04-cap4', { opacity: 1, duration: 0.6 }, 6)
    .to('#bp-arrow4', { opacity: 1, duration: 0.4 }, 6.5)
 // Pixel Conditioning
    .to('#bp-pixel', { opacity: 1, duration: 0.8 }, 7)
-   .from('#bp-pixel', { x: -40, duration: 0.8, ease: 'power2.out' }, 7)
+   .from('#bp-pixel', { y: 20, duration: 0.8, ease: 'power2.out' }, 7)
    .to('#s04-cap5', { opacity: 1, duration: 0.6 }, 7.5)
 // Blueprint glow pulse
    .to('.blueprint-box', { borderColor: 'rgba(212,160,23,.8)', duration: 0.4 }, 8.5)
